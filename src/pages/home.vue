@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <div class="top">
-            <div class="search">
+            <div class="search" @click="changePath('./search')">
                 <image src="../static/icon/search.png"></image>
             </div>
             <div class="regions">
@@ -231,7 +231,7 @@ export default {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            font-size: 38rpx;
+            font-size: 36rpx;
             color: rgba(77, 76, 76, 0.705);
             .select{
                 color: black;
@@ -393,7 +393,7 @@ export default {
                         margin-right: 36rpx;
                     }
                     span{
-                        font-size: 34rpx;
+                        font-size: 32rpx;
                     }
                 }
                 .functionalItemRight{
@@ -403,7 +403,7 @@ export default {
                     align-items: center;
                     span{
                         color: #c0bfbf;
-                        font-size: 32rpx;
+                        font-size: 29rpx;
                         padding: 0 17rpx;
                     }
                     #rightArrow{
@@ -491,7 +491,6 @@ export default {
                 display: none;
             }
         }
-        
     }
 }
 </style>

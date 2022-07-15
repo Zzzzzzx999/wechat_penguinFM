@@ -1,0 +1,104 @@
+<template>
+    <div class="search">
+        <div class="top">
+            <input type="text" placeholder="搜索节目/音乐/主播/广播">
+            <span @click="changePath('./home')">取消</span>
+        </div>
+        <div class="content">
+            <div class="title">
+                <span>热门搜索:</span>
+            </div>
+            <ul>
+                <li v-for="word in hotWords" :key="word.id" :class="word.id<=3?'active':''">
+                    {{word.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name:"search",
+    data() {
+        return {
+            hotWord:['哈妮克孜','草根升官记','热血传奇','盗墓笔记','张云雷','爱情公寓',
+            '单田芳','巴啦啦小魔仙','郭德纲','法医秦明','三体','最强打脸系统'],
+            hotWords:[
+                {id:1,name:'哈妮克孜'},
+                {id:2,name:'草根升官记'},
+                {id:3,name:'热血传奇'},
+                {id:4,name:'盗墓笔记'},
+                {id:5,name:'张云雷'},
+                {id:6,name:'爱情公寓'},
+                {id:7,name:'单田芳'},
+                {id:8,name:'巴啦啦小魔仙'},
+                {id:9,name:'郭德纲'},
+                {id:10,name:'法医秦明'},
+                {id:11,name:'三体'},
+                {id:12,name:'最强打脸系统'},
+            ]
+        }
+    },
+    methods: {
+        changePath(path){
+            wx.redirectTo({url:path})
+        }
+    },
+}
+</script>
+
+<style lang="less">
+.search{
+    height: 100vh;
+    width: 100vw;
+    .top{
+        height: 60rpx;
+        display: flex;
+        align-items: center;
+        margin:20rpx 0 20rpx 40rpx;
+        input{
+            height: 100%;
+            flex-grow: 1;
+            background-color: rgba(226, 225, 225, 0.904);
+            border-radius: 30rpx;
+            padding-left: 30rpx;
+        }
+        span{
+            height: 100%;
+            padding: 0 40rpx;
+            color: gray;
+            font-size: 36rpx;
+        }
+    }
+    .content{
+        margin: 40rpx;
+        .title{
+            font-size: 37rpx;
+            color: rgba(87, 86, 86, 0.966);
+        }
+        ul{
+            display: flex;
+            flex-flow: row wrap;
+            font-weight: 500;
+            margin: 30rpx 0;
+            li{
+                margin: 10rpx 20rpx 5rpx 0;
+                padding: 10rpx 25rpx;
+                background-color: antiquewhite;
+                border-radius: 40rpx;
+                font-size: 28rpx;
+            }
+            .active{
+                margin: 15rpx 20rpx 10rpx 0;
+                padding: 10rpx 25rpx;
+                background-color: rgb(238, 174, 91);
+                border-radius: 40rpx;
+                font-size: 28rpx;
+                color: white;
+            }
+        }
+       
+    }
+}
+</style>

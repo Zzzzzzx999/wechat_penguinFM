@@ -56,7 +56,7 @@
                 </div>
                 <div class="functionalArea">
                     <div class="functionalItem" :class="haveWork?'lookActive':''" @click="lookWork()">
-                        <span>作品</span>
+                        <span>作 品</span>
                     </div>
                     <div class="functionalItem" :class="{'lookActive':haveGift}" @click="lookGift()">
                         <span>礼物榜</span>
@@ -259,10 +259,10 @@ export default {
                     width: 50%;
                     text-align: center;
                     span{
-                        width: 150rpx;
-                        display: block;
-                        text-align: justify;
-                        text-align-last: justify;
+                        // width: 150rpx;
+                        // display: block;
+                        // text-align: justify;
+                        // text-align-last: justify;
                     }
                 }
                 .lookActive span{
