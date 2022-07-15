@@ -96,7 +96,7 @@ export default {
             z-index: 1;
         }
         .contentCard{
-            height: 900rpx;
+            height: 950rpx;
             width: 100%;
             position: absolute;
             top: 0;
@@ -117,10 +117,10 @@ export default {
                 padding: 0 50rpx;
                 color: whitesmoke;
                .title{
-                   font-size: 40rpx;
+                   font-size: 36rpx;
                }
                .details{
-                   font-size: 28rpx;
+                   font-size: 25rpx;
                    color: gray;
                    margin: 15rpx 0;
                    span{
@@ -129,9 +129,10 @@ export default {
                    #score{
                        padding-left: 0;
                    }
-                   .matchingDegree{
-                        color: gray;
-                    }
+                }
+                .matchingDegree{
+                    color: gray;
+                    font-size: 25rpx;
                 }
             }
             .functionalAreas{
@@ -140,6 +141,7 @@ export default {
                 height: 100rpx;
                 justify-content: space-around;
                 align-items: center;
+                margin-top: 65rpx;
                 image{
                     width: 50rpx;
                     height: 50rpx;

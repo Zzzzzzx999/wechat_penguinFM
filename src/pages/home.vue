@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="myInfo">
+            <div class="myInfo" @click="changePath('./myPage')">
                 <div class="headSculpture">
                     <div class="userHeadSculpture">
                         <image src="https://img1.baidu.com/it/u=2145784900,2865107303&fm=253&fmt=auto&app=138&f=JPG?w=500&h=500"></image>
@@ -29,7 +29,7 @@
                                 <span>LV1</span>
                             </div>
                         </div>
-                        <div class="recording">
+                        <div class="recording" @click.stop>
                             <image src="../static/icon/麦克风.png"></image>
                             <span>录制</span>
                         </div>
@@ -88,7 +88,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./myWallet')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/money_bag_fill.png"></image>
                             <span>我的钱包</span>
@@ -138,7 +138,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./setting')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/selection_fill.png"></image>
                             <span>设置</span>
@@ -206,6 +206,8 @@ export default {
     background-color: #F9F9F9;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
     .top{
         height: 75rpx;
         width: 100vw;
@@ -246,6 +248,7 @@ export default {
         }
     }
     .content{
+        flex: 1;
         .myInfo{
             padding: 0 30rpx;
             height: 250rpx;
@@ -262,17 +265,17 @@ export default {
                 .userHeadSculpture{
                     position: relative;
                     image{
-                        height: 150rpx;
-                        width: 150rpx;
+                        height: 125rpx;
+                        width: 125rpx;
                         border-radius: 50%;
                         z-index: 1;
                     }
                     #wechat{
-                        height: 37rpx;
-                        width: 37rpx;
+                        height: 33rpx;
+                        width: 33rpx;
                         position: absolute;
-                        bottom: 3rpx;
-                        right: 3rpx;
+                        bottom: 2rpx;
+                        right: -7rpx;
                         z-index: 2;
                     }
                 }
@@ -489,15 +492,6 @@ export default {
             }
         }
         
-    }
-}
-
-@-webkit-keyframes slideShine{
-    0%{
-        background-position: 0 0;
-    }
-    100%{
-        background-position: 100% 100%;
     }
 }
 </style>

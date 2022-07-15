@@ -17,6 +17,24 @@
 			"style": {
 				"navigationBarTitleText": "跑步听"
 			}
+		},
+		{
+			"path": "pages/myPage",
+			"style": {
+				"navigationBarTitleText": "我的主页"
+			}
+		},
+		{
+			"path": "pages/myWallet",
+			"style": {
+				"navigationBarTitleText": "我的钱包"
+			}
+		},
+		{
+			"path": "pages/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
 		}
 	],
 	"globalStyle": {
