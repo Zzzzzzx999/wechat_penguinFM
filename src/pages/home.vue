@@ -52,7 +52,7 @@
             </div>
             <div class="functionalDomain">
                 <div class="areasMy">
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./recentlyListened')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/time_fill.png"></image>
                             <span>最近收听</span>
@@ -70,7 +70,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./channelSorting')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/favor_fill_light.png"></image>
                             <span>我的收藏</span>

@@ -41,7 +41,20 @@
 			"style": {
 				"navigationBarTitleText": "搜索"
 			}
+		},
+		{
+			"path": "pages/channelSorting",
+			"style": {
+				"navigationBarTitleText": "频道排序"
+			}
+		},
+		{
+			"path": "pages/recentlyListened",
+			"style": {
+				"navigationBarTitleText": "最近收听"
+			}
 		}
+		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
