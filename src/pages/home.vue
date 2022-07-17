@@ -61,7 +61,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./myDownloads')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/square_check_fill.png"></image>
                             <span>我的下载</span>
@@ -188,7 +188,7 @@ export default {
     },
     methods: {
         changePath(path){
-            wx.redirectTo({url:path})
+            wx.navigateTo({url:path})
         }
         /* goPlayer(){
             const backgroundAudioManager = wx.getBackgroundAudioManager()

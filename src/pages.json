@@ -53,6 +53,12 @@
 			"style": {
 				"navigationBarTitleText": "最近收听"
 			}
+		},
+		{
+			"path": "pages/myDownloads",
+			"style": {
+				"navigationBarTitleText": "我的下载"
+			}
 		}
 		
 	],

@@ -161,7 +161,7 @@
       </div>
     </div>
     <div class="logOut">
-      <span>退出登录</span>
+      <span @click="changePath('./index/index')">退出登录</span>
     </div>
     <div class="footer" @click="goPlayer()">
       <div class="playBar">
@@ -200,7 +200,9 @@ export default {
     };
   },
   methods:{
-    
+    changePath(path){
+      wx.redirectTo({url:path})
+    }
   }
 }
 </script>
