@@ -35,8 +35,7 @@
           <span>弹幕开关</span>
         </div>
         <div class="itemRight">
-          <!-- <span>无音效</span>
-          <image src="../static/icon/右箭.png"></image> -->
+          <switch class="switch" checked="switchs.barrage" @change="switchs.barrage=!switchs.barrage" color="#D3AB58"></switch>
         </div>
       </div>
       <div class="functionalItem">
@@ -44,8 +43,7 @@
           <span>录音耳返</span>
         </div>
         <div class="itemRight">
-          <!-- <span>无音效</span>
-          <image src="../static/icon/右箭.png"></image> -->
+          <switch class="switch" checked="switchs.EarReturn" @change="switchs.EarReturn=!switchs.EarReturn" color="#D3AB58"></switch>
         </div>
       </div>
     </div>
@@ -68,12 +66,22 @@
         </div>
       </div>
     </div>
-    <div class="remind">
-      <div class="remindItem">
-        <span>2G/3G/4G网络下载提醒</span>
+    <div class="functionalArea">
+      <div class="functionalItem">
+        <div class="itemLeft">
+          <span>2G/3G/4G网络下载提醒</span>
+        </div>
+        <div class="itemRight">
+          <switch class="switch" checked="switchs.download" @change="switchs.download=!switchs.download" color="#D3AB58"></switch>
+        </div>
       </div>
-      <div class="remindItem">
-        <span>2G/3G/4G网络下载提醒</span>
+      <div class="functionalItem">
+        <div class="itemLeft">
+          <span>2G/3G/4G网络下载提醒</span>
+        </div>
+        <div class="itemRight">
+          <switch class="switch" checked="switchs.play" @change="switchs.play=!switchs.play" color="#D3AB58"></switch>
+        </div>
       </div>
     </div>
     <div class="functionalArea">
@@ -166,21 +174,21 @@
     <div class="footer" @click="goPlayer()">
       <div class="playBar">
         <div class="radioAvatar">
-          <image src="../static/Picture_material/1657765591270.jpg"></image>
+          <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
         </div>
         <div class="radioContent">
           <div class="radioContentHeader">
-            <span>企鹅FM</span>
+            <span>62从婴儿囚犯到皇帝</span>
             </div>
           <div class="radioContentFooter">
-              <span>随心一按 听点有趣</span>
+              <span>左右滑动切换节目</span>
           </div>
         </div>
         <div class="broadcast">
           <image src="../static/icon/homeIcon/24gf-playCircle.png"></image>
         </div>
         <div class="text">
-          <image src="../static/icon/homeIcon/文件.png"></image>
+          <image src="../static/icon/文件.png"></image>
         </div>
       </div>
       <!-- 进度条 -->
@@ -197,6 +205,13 @@ export default {
   data() {
     return {
       property: 'value',
+      // 按钮开关
+      switchs:{
+        barrage:true,
+        EarReturn:true,
+        download:true,
+        play:true
+      }
     };
   },
   methods:{
@@ -240,6 +255,8 @@ export default {
       align-items: center;
       .itemLeft{
         width: 50%;
+        font-size: 30rpx;
+        font-weight: 500;
       }
       .itemRight{
         width: 50%;
@@ -252,6 +269,9 @@ export default {
           width: 30rpx;
           height: 30rpx;
           margin-left: 20rpx;
+        }
+        .switch{
+          transform:scale(0.8) !important;
         }
       }
     }
@@ -303,8 +323,8 @@ export default {
         flex-grow: 1;
         padding: 0 20rpx;
         .radioContentHeader{
-          font-size: 36rpx;
-          font-weight: 500;
+          font-size: 32rpx;
+          font-weight: 600;
         }
         .radioContentFooter{
           font-size: 28rpx;

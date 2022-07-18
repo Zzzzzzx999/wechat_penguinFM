@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/runningKnack",
+			"style": {
+				"navigationBarTitleText": "跑步小诀窍"
+			}
+		},
+		{
 			"path": "pages/myPage",
 			"style": {
 				"navigationBarTitleText": "我的主页"
@@ -58,6 +64,12 @@
 			"path": "pages/myDownloads",
 			"style": {
 				"navigationBarTitleText": "我的下载"
+			}
+		},
+		{
+			"path": "pages/myCollection",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
 			}
 		}
 		

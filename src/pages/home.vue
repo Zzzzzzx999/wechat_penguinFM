@@ -10,7 +10,7 @@
                 <span class="select">我的</span>
             </div>
             <div class="history">
-                <image src="../static/icon/countdown.png"></image>
+                <image src="../static/icon/countdown.png" @click="changePath('./recentlyListened')"></image>
             </div>
         </div>
         <div class="content">
@@ -70,7 +70,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem" @click="changePath('./channelSorting')">
+                    <div class="functionalItem" @click="changePath('./myCollection')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/favor_fill_light.png"></image>
                             <span>我的收藏</span>
@@ -79,7 +79,7 @@
                             <image id="rightArrow" src="../static/icon/homeIcon/右箭头.png"></image>
                         </div>
                     </div>
-                    <div class="functionalItem">
+                    <div class="functionalItem" @click="changePath('./channelSorting')">
                         <div class="functionalItemLeft">
                             <image src="../static/icon/homeIcon/cart_fill.png"></image>
                             <span>我的已购</span>
@@ -153,7 +153,7 @@
         <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
-                    <image src="../static/Picture_material/1657765591270.jpg"></image>
+                    <image mode="aspectFill" src="../static/Picture_material/1657765591270.jpg"></image>
                 </div>
                 <div class="radioContent">
                     <div class="radioContentHeader">
@@ -448,8 +448,8 @@ export default {
                 flex-grow: 1;
                 padding: 0 20rpx;
                 .radioContentHeader{
-                    font-size: 36rpx;
-                    font-weight: 500;
+                    font-size: 32rpx;
+                    font-weight: 600;
                 }
                 .radioContentFooter{
                     font-size: 28rpx;

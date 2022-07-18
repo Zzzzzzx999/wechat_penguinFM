@@ -1,7 +1,10 @@
 <template>
     <div class="search">
         <div class="top">
-            <input type="text" placeholder="搜索节目/音乐/主播/广播">
+            <div class="searchInput">
+                <input type="text" v-model="searchValue" @keyup.enter="beginSearch" placeholder="搜索节目/音乐/主播/广播">
+                <image v-if="searchValue!=''" src="../static//icon/取消.png" @click="searchValue=''"></image>
+            </div>
             <span @click="changePath('./home')">取消</span>
         </div>
         <div class="content">
@@ -13,6 +16,9 @@
                     {{word.name}}
                 </li>
             </ul>
+        </div>
+        <div class="searchResult">
+
         </div>
     </div>
 </template>
@@ -37,12 +43,18 @@ export default {
                 {id:10,name:'法医秦明'},
                 {id:11,name:'三体'},
                 {id:12,name:'最强打脸系统'},
-            ]
+            ],
+            searchValue:''
         }
     },
     methods: {
         changePath(path){
             wx.redirectTo({url:path})
+        },
+        beginSearch(){
+            console.log(123);
+            wx.setStorageSync('inputValue',searchValue)
+            wx.navigateTo({url:'./searchResult'})
         }
     },
 }
@@ -57,12 +69,24 @@ export default {
         display: flex;
         align-items: center;
         margin:20rpx 0 20rpx 40rpx;
-        input{
+        .searchInput{
             height: 100%;
             flex-grow: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 30rpx;
             background-color: rgba(226, 225, 225, 0.904);
             border-radius: 30rpx;
-            padding-left: 30rpx;
+            input{
+                flex: 1;
+                height: 100%;
+            }
+            image{
+                height: 40rpx;
+                width: 40rpx;
+                min-width: 40rpx;
+                min-height: 40rpx;
+            }
         }
         span{
             height: 100%;

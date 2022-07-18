@@ -5,7 +5,7 @@
             <span>添加“播放最近收听”到Siri</span>
             <image id="right" src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
-        <div class="notRecentPrograms" v-if="recentProgram">
+        <div class="notRecentPrograms" v-if="!recentProgram">
             <image src="../static/icon/Time-Folder.png"></image>
             <div class="recent">
                 <span>暂无最近收听</span>
@@ -14,14 +14,17 @@
                 <span>去收听更多精彩节目</span>
             </div>
         </div>
-        <div class="recentPrograms" v-if="!recentProgram">
+        <div class="recentPrograms" v-if="recentProgram">
             <div class="programs">
                 <div class="programLeft">
                     <image mode="aspectFill" src="https://img2.baidu.com/it/u=1719968675,2457840328&fm=253&fmt=auto&app=138&f=JPEG?w=998&h=500"></image>
                 </div>
-                <div class="programRight">
+                <div class="programRight programsHeader">
                     <div class="programTitle">
                         <span>最近收听的节目</span>
+                        <div class="empty" @click="recentProgram=false">
+                            <span>清空</span>
+                        </div>
                     </div>
                     <div class="programContent">
                         <span>共4集</span>
@@ -87,7 +90,7 @@
             </div>
             <div class="programs">
                 <div class="programLeft">
-                    <image mode="aspectFill" src="https://bkimg.cdn.bcebos.com/pic/d50735fae6cd7b8915c84450012442a7d8330eb8?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5MzM=,g_7,xp_5,yp_5/format,f_auto"></image>
+                    <image mode="aspectFill" src="https://imagev2.xmcdn.com/group48/M0B/FE/11/wKgKnFthuVORz5AWABdtoj2_eR8462.png!strip=1&quality=7&magick=webp&op_type=5&upload_type=cover&name=web_large&device_type=ios"></image>
                 </div>
                 <div class="programRight">
                     <div class="programTitle">
@@ -151,7 +154,7 @@
         <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
-                    <image src="../static/Picture_material/1657765591270.jpg"></image>
+                    <image mode="aspectFill" src="../static/Picture_material/1657765591270.jpg"></image>
                 </div>
                 <div class="radioContent">
                     <div class="radioContentHeader">
@@ -170,7 +173,7 @@
             </div>
             <!-- 进度条 -->
             <div class="progressBar" @click.stop>
-                <slider class="slider" min="0" max="100" value="30" activeColor="#D3AB58" block-size="12"></slider>
+                <slider class="slider" min="0" max="100" value="0" activeColor="#D3AB58" block-size="12"></slider>
             </div>
         </div>
     </div>
@@ -181,7 +184,7 @@ export default {
     name:"recentlyListened",
     data() {
         return {
-            recentProgram:false, //是否有最近收听节目
+            recentProgram:true, //是否有最近收听节目
         }
     }
 }
@@ -196,7 +199,7 @@ export default {
     flex-flow: column nowrap;
     background-color: whitesmoke;
     .addToSiri{
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.45);
         height: 100rpx;
         padding: 0 40rpx;
         display: flex;
@@ -248,8 +251,8 @@ export default {
         flex-flow: column nowrap;
         margin-bottom: 210rpx;
         .title{
-            font-size: 42rpx;
-            font-weight: 500;
+            font-size: 38rpx;
+            font-weight: 600;
             margin: 40rpx 0;
         }
     }
@@ -290,8 +293,8 @@ export default {
                 flex-grow: 1;
                 padding: 0 20rpx;
                 .radioContentHeader{
-                    font-size: 36rpx;
-                    font-weight: 500;
+                    font-size: 32rpx;
+                    font-weight: 600;
                 }
                 .radioContentFooter{
                     font-size: 28rpx;
@@ -376,20 +379,30 @@ export default {
                 }
                 #Name{
                     margin-left: 20rpx;
-                    font-size: 35rpx;
-                    font-weight: 500;
+                    font-size: 32rpx;
+                    font-weight: 600;
+                }
+                .empty{
+                    margin-left: 50rpx;
+                    color: #D3AB58;
+                    border: 1rpx solid #a78034;
+                    border-radius: 10rpx;
+                    padding: 5rpx 10rpx;
                 }
             }
             .programContent{
-                font-size: 26rpx;
+                font-size: 25rpx;
                 margin: 15rpx 0;
                 color: grey;
                 overflow: hidden;
             }
             .programDetail{
                 color: grey;
-                font-size: 26rpx;
+                font-size: 25rpx;
             }
+        }
+        .programsHeader{
+            margin-bottom: 40rpx;
         }
     }
 }

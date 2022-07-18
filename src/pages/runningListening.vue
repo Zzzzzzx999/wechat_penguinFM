@@ -14,7 +14,7 @@
                 <span>km</span>
             </div>
         </div>
-        <div class="content">
+        <div class="content" @click="changePath('./runningKnack')">
             <image mode="aspectFill" src="https://img0.baidu.com/it/u=232630015,4067357132&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"></image>
             <div class="contentCard">
                 <div class="speed">慢速</div>
@@ -29,7 +29,7 @@
                         <span>最高匹配度0%</span>
                     </div>
                 </div>
-                <div class="functionalAreas">
+                <div class="functionalAreas" @click.stop>
                     <image src="../static/icon/run/下载.png"></image>
                     <image src="../static/icon/run/收藏.png"></image>
                     <image src="../static/icon/run/详情.png"></image>
@@ -47,6 +47,11 @@ export default {
             
         }
     },
+    methods:{
+        changePath(path){
+            wx.navigateTo({url:path})
+        }
+    }
 }
 </script>
 
