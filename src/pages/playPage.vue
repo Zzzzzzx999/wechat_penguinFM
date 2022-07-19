@@ -48,6 +48,25 @@
                 <image id="cutSong" src="../static/icon/24gf-playCircle.png"></image>
                 <image id="changeTime" src="../static/icon/前进-22.png"></image>
             </div>
+            <div class="programControl">
+                <image :src="collect?'../static/icon/playPage/取消收藏.png':'../static/icon/playPage/取消收藏(1).png'" @click="collect=!collect"></image>
+                <image src="../static/icon/playPage/排序.png"></image>
+                <image src="../static/icon/playPage/转发.png"></image>
+                <image :src="timing?'../static/icon/playPage/广播-定时(1).png':'../static/icon/playPage/广播-定时.png'" @click="timing=!timing"></image>
+                <image src="../static/icon/playPage/文本.png"></image>
+            </div>
+        </div>
+        <div class="adjustSpeed" v-if="adjustSpeed">
+            <div class="title">
+                <span>调整语速</span>
+            </div>
+            <div class="progressBar">
+                <slider class="slider" min="0" max="100" value="1" activeColor="whitesmoke" block-size="12" backgroundColor="gray"></slider>
+                <div class="sliderTime">
+                    <span>00:04</span>
+                    <span>07:55</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -57,7 +76,9 @@ export default {
     name:"playPage",
     data() {
         return {
-            property: 'value',
+            collect: false,     //收藏
+            timing:false,    //定时闹钟
+            adjustSpeed:true,    //调整语速
         };
     },
 }
@@ -67,6 +88,7 @@ export default {
 .playPage{
     height: 100vh;
     width: 100vw;
+    position: relative;
     .playtop{
         height: 53vh;
         width: 100vw;
@@ -195,7 +217,7 @@ export default {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin: 50rpx 30rpx;
+            margin: 80rpx 30rpx;
             #changeTime{
                 height: 50rpx;
                 width: 50rpx;
@@ -207,6 +229,59 @@ export default {
             #play{
                 height: 130rpx;
                 width: 130rpx;
+            }
+        }
+        .programControl{
+            margin: 50rpx 13rpx 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            image{
+                height: 55rpx;
+                width: 55rpx;
+            }
+        }
+    }
+    .adjustSpeed{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 29vh;
+        width: 100vw;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+		background-color: aliceblue;
+        .title{
+			height: 100rpx;
+			width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28rpx;
+            color: rgb(165, 164, 164);
+        }
+        .progressBar{
+            height: 30rpx;
+            width: 90vw;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            margin-top: 50rpx;
+            .slider{
+                width: 100%;
+                margin: 0;
+                vertical-align: center;
+            }
+            .wx-slider-thumb {
+                display: none;
+            }
+            .sliderTime{
+                display: flex;
+                justify-content: space-between;
+                font-size: 20rpx;
+                padding: 0 10rpx;
+                color: grey;
             }
         }
     }
