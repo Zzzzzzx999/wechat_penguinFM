@@ -49,6 +49,12 @@
 			}
 		},
 		{
+			"path": "pages/searchResult",
+			"style": {
+				"navigationBarTitleText": "搜索结果"
+			}
+		},
+		{
 			"path": "pages/channelSorting",
 			"style": {
 				"navigationBarTitleText": "频道排序"
@@ -70,6 +76,12 @@
 			"path": "pages/myCollection",
 			"style": {
 				"navigationBarTitleText": "我的收藏"
+			}
+		},
+		{
+			"path": "pages/playPage",
+			"style": {
+				"navigationBarTitleText": "播放页"
 			}
 		}
 		

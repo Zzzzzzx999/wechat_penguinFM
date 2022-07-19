@@ -2,7 +2,7 @@
     <div class="search">
         <div class="top">
             <div class="searchInput">
-                <input type="text" v-model="searchValue" @keyup.enter="beginSearch" placeholder="搜索节目/音乐/主播/广播">
+                <input type="text" v-model.trim="searchValue" @confirm="beginSearch" placeholder="搜索节目/音乐/主播/广播">
                 <image v-if="searchValue!=''" src="../static//icon/取消.png" @click="searchValue=''"></image>
             </div>
             <span @click="changePath('./home')">取消</span>
@@ -13,7 +13,7 @@
             </div>
             <ul>
                 <li v-for="word in hotWords" :key="word.id" :class="word.id<=3?'active':''">
-                    {{word.name}}
+                    <span @click="searchThis(word.name)">{{word.name}}</span>
                 </li>
             </ul>
         </div>
@@ -53,8 +53,12 @@ export default {
         },
         beginSearch(){
             console.log(123);
-            wx.setStorageSync('inputValue',searchValue)
-            wx.navigateTo({url:'./searchResult'})
+            // wx.setStorageSync('inputValue',this.searchValue)
+            wx.navigateTo({url:'./searchResult?keyword='+this.searchValue})
+        },
+        searchThis(keyword){
+            console.log(keyword);
+            wx.navigateTo({url:"./searchResult?keyword="+this.searchValue})
         }
     },
 }
