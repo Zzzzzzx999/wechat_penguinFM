@@ -83,8 +83,13 @@
 			"style": {
 				"navigationBarTitleText": "播放页"
 			}
+		},
+		{
+			"path": "pages/gift",
+			"style": {
+				"navigationBarTitleText": "礼物榜"
+			}
 		}
-		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

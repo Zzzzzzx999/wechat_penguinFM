@@ -1,6 +1,6 @@
 <template>
     <div class="playPage">
-        <div class="playtop">
+        <div class="playtop" :class="{'playMask':adjustSpeed}">
             <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
             <div class="user">
                 <div class="number">
@@ -10,11 +10,11 @@
                 <image mode="aspectFill" src="https://img0.baidu.com/it/u=3365573645,2073973856&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"></image>
             </div>
             <div class="functionalArea">
-                <image mode="aspectFill" src="../static/icon/礼物.png"></image>
+                <image mode="aspectFill" src="../static/icon/礼物.png" @click="changePath('../pages/gift')"></image>
                 <image mode="aspectFill" src="../static/icon/消息.png"></image>
             </div>
         </div>
-        <div class="playContent">
+        <div class="playContent" :class="{'playMask':adjustSpeed}">
             <div class="progressBar" @click.stop>
                 <slider class="slider" min="0" max="100" value="30" activeColor="#f1d498" block-color="#D3AB58" block-size="12"></slider>
                 <div class="text">
@@ -28,7 +28,7 @@
                         <span>高清</span>
                         <image src="../static/icon/选择器展开.png"></image>
                     </div>
-                    <div class="speakingSpeed configItem">
+                    <div class="speakingSpeed configItem" @click="adjustSpeed=true">
                         <span>语速</span>
                         <image src="../static/icon/选择器展开.png"></image>
                     </div>
@@ -56,17 +56,52 @@
                 <image src="../static/icon/playPage/文本.png"></image>
             </div>
         </div>
+        <div class="playPageTitle">
+            <span>62从婴儿囚犯到皇帝</span>
+        </div>
         <div class="adjustSpeed" v-if="adjustSpeed">
-            <div class="title">
-                <span>调整语速</span>
-            </div>
-            <div class="progressBar">
-                <slider class="slider" min="0" max="100" value="1" activeColor="whitesmoke" block-size="12" backgroundColor="gray"></slider>
-                <div class="sliderTime">
-                    <span>00:04</span>
-                    <span>07:55</span>
+           <div class="speed">
+                 <div class="adjustTop">
+                    <div class="title">
+                        <span>调整语速</span>
+                    </div>
+                    <div class="progressBar">
+                        <div class="speedDetail">
+                            <div class="speedbox" :class="{'boxHidden':speed.one}">
+                                <span>0.5x</span>
+                            </div>
+                            <div class="speedbox" :class="{'boxHidden':speed.two}">
+                                <span>1.0x</span>
+                            </div>
+                            <div class="speedbox" :class="{'boxHidden':speed.three}">
+                                <span>1.5x</span>
+                            </div>
+                            <div class="speedbox" :class="{'boxHidden':speed.four}">
+                                <span>2.0x</span>
+                            </div>
+                        </div>
+                        <slider class="slider" min="0" max="90" model:value="sliderValue" 
+                            activeColor="rgb(173, 169, 169)" block-color="#D3AB58" block-size="12" backgroundColor="rgb(173, 169, 169)"
+                            @change="changeSpeed">
+                            <div class="box">
+                                <div class="boxes"></div>
+                                <div class="boxes"></div>
+                                <div class="boxes"></div>
+                            </div>
+                        </slider>
+                        
+                        <div class="sliderTime">
+                            <span>0.5x</span>
+                            <span>1.0x</span>
+                            <span>1.5x</span>
+                            <span>2.0x</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="determine">
+                    <span @click="adjustSpeed=false">确定</span>
+                </div>
+           </div>
         </div>
     </div>
 </template>
@@ -78,13 +113,55 @@ export default {
         return {
             collect: false,     //收藏
             timing:false,    //定时闹钟
-            adjustSpeed:true,    //调整语速
+            adjustSpeed:false,    //调整语速
+            sliderValue:30,     //滑块的值
+            speed:{
+                one:true,
+                two:false,
+                three:true,
+                four:true,
+            }
         };
     },
+    methods: {
+        changePath(path){
+            wx.redirectTo({url:path})
+        },
+        changeSpeed(e){
+            console.log(e.detail.value);
+            if (e.detail.value<15) {
+                this.sliderValue = 0
+                this.speedGetTrue()
+                this.speed.one=false
+            }else if(e.detail.value>15 && e.detail.value<45){
+                this.sliderValue = 30
+                this.speedGetTrue()
+                this.speed.two=false
+            }else if(e.detail.value>45 && e.detail.value<75){
+                this.sliderValue = 60
+                this.speedGetTrue()
+                this.speed.three=false
+            }else{
+                this.sliderValuel = 90
+                this.speedGetTrue()
+                this.speed.four=false
+            }
+            console.log(this.sliderValue);
+        },
+        speedGetTrue(){
+            this.speed.one=true
+            this.speed.two=true
+            this.speed.three=true
+            this.speed.four=true
+        }
+    }
 }
 </script>
 
 <style lang="less">
+.playMask{
+    // background-color: rgba(0, 0, 0, .3);
+}
 .playPage{
     height: 100vh;
     width: 100vw;
@@ -96,6 +173,7 @@ export default {
         image{
             height: 100%;
             width: 100%;
+            filter: brightness(80%);
         }
         .user{
             height: 170rpx;
@@ -244,46 +322,129 @@ export default {
     }
     .adjustSpeed{
         position: fixed;
-        bottom: 0;
+        top: 0;
         left: 0;
-        height: 29vh;
+        height: 100vh;
         width: 100vw;
         display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-		background-color: aliceblue;
-        .title{
-			height: 100rpx;
-			width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28rpx;
-            color: rgb(165, 164, 164);
-        }
-        .progressBar{
-            height: 30rpx;
-            width: 90vw;
+        align-items: flex-end;
+		background: rgba(0, 0, 0, 0.45);
+        z-index: 7;
+        .speed{
+            height: 30vh;
+            width: 100vw;
             display: flex;
             flex-flow: column nowrap;
-            justify-content: center;
-            margin-top: 50rpx;
-            .slider{
-                width: 100%;
-                margin: 0;
-                vertical-align: center;
-            }
-            .wx-slider-thumb {
-                display: none;
-            }
-            .sliderTime{
+            align-items: center;
+            background: rgb(221, 220, 220);
+            z-index: 8;
+            .adjustTop{
+                height: 62%;
+                width: 100vw;
+                background-color: white;
                 display: flex;
-                justify-content: space-between;
-                font-size: 20rpx;
-                padding: 0 10rpx;
-                color: grey;
+                flex-flow: column nowrap;
+                align-items: center;
+                .title{
+                    height: 100rpx;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 28rpx;
+                    color: rgb(165, 164, 164);
+                }
+                .progressBar{
+                    height: 30rpx;
+                    width: 90vw;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 50rpx;
+                    .speedDetail{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100vw;
+                        padding: 0 20rpx;
+                        box-sizing: border-box;
+                        .speedbox{
+                            height: 60rpx;
+                            width: 90rpx;
+                            background-color: rgba(243, 233, 233, 0.849);
+                            border-radius: 20rpx;
+                            margin-bottom: 20rpx;
+                            color: #e0ac42;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .boxHidden{
+                            visibility:hidden;
+                        }
+                    }
+                    .slider{
+                        width: 95%;
+                        margin: 0;
+                        vertical-align: center;
+                        position: relative;
+                        .box{
+                            position: absolute;
+                            top: 8rpx;
+                            left: 3rpx;
+                            height: 10rpx;
+                            width:100%;
+                            display: flex;
+                            justify-content: space-between;
+                            .boxes{
+                                height: 16rpx;
+                                width: 33.33%;
+                                border-left: 3rpx solid rgb(173, 169, 169);
+                                z-index: -5;
+                            }
+                            .boxes:last-child{
+                                border-right: 3rpx solid rgb(173, 169, 169);
+                            }
+                        }
+                    }
+                    .wx-slider-thumb {
+                        // display: none;
+                    }
+                    .sliderTime{
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        font-size: 20rpx;
+                        padding: 0 10rpx;
+                        color: grey;
+                    }
+                }
             }
         }
+        .determine{
+            flex-grow: 1;
+            width: 100vw;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            background-color: white;
+            margin-top: 20rpx;
+            span{
+                font-size: 35rpx;
+                font-weight: 500;
+                margin-top: 30rpx;
+            }
+        }
+        
+    }
+    .playPageTitle{
+        position: absolute;
+        top: 50rpx;
+        left: 30rpx;
+        color: aliceblue;
+        font-size: 42rpx;
+        font-weight: 500;
+        z-index: 6;
     }
 }
 </style>
