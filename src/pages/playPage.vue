@@ -59,6 +59,7 @@
         <div class="playPageTitle">
             <span>62从婴儿囚犯到皇帝</span>
         </div>
+        <!-- 调节语速 -->
         <div class="adjustSpeed" v-if="adjustSpeed">
            <div class="speed">
                  <div class="adjustTop">
@@ -102,6 +103,23 @@
                     <span @click="adjustSpeed=false">确定</span>
                 </div>
            </div>
+        </div>
+        <!-- 查看播放顺序 -->
+        <div class="sequentialPlayBack">
+            <div class="playBackDirectory">
+                <div class="directoryTop">
+                    <image src=""></image>
+                    <span>顺序播放(62集)</span>
+                    <image id="rightItem" src=""></image>
+                    <image id="rightItem" src=""></image>
+                </div>
+                <div class="directoryContent">
+
+                </div>
+                <div class="contentBottom">
+
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -320,6 +338,15 @@ export default {
             }
         }
     }
+    .playPageTitle{
+        position: absolute;
+        top: 50rpx;
+        left: 30rpx;
+        color: aliceblue;
+        font-size: 42rpx;
+        font-weight: 500;
+        z-index: 6;
+    }
     .adjustSpeed{
         position: fixed;
         top: 0;
@@ -437,14 +464,35 @@ export default {
         }
         
     }
-    .playPageTitle{
-        position: absolute;
-        top: 50rpx;
-        left: 30rpx;
-        color: aliceblue;
-        font-size: 42rpx;
-        font-weight: 500;
-        z-index: 6;
+    .sequentialPlayBack{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, .45);
+        display: flex;
+        align-items: flex-end;
+        .playBackDirectory{
+            height: 75vh;
+            width: 100vw;
+            background: white;
+            padding: 0 30rpx;
+            box-sizing: border-box;
+            .directoryTop{
+                height: 80rpx;
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                image{
+                    height: 40rpx;
+                    width: 40rpx;
+                }
+                span{
+                    padding-left: 30rpx;
+                }
+            }
+        }
     }
 }
 </style>

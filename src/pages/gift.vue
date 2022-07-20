@@ -82,6 +82,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- 赠送礼物弹窗 -->
 		<div class="giving" v-if="giftGiving">
 			<div class="rewardTitle">
 				<div class="rewardTop">
@@ -91,7 +92,16 @@
 					<image src="../static/icon/关闭.png" @click="giftGiving=false"></image>
 				</div>
 				<div class="rewardContent">
-					<div class="rewardItem" :class="{'activeItem':reward.a}" @click="changeReward(reward.a)">
+					<div class="rewardItem" v-for="r in rewards" :key="r.id" :class="{'activeItem':r.select}" @click="changeReward(r.id)">
+						<div class="rewardImage">
+							<image mode="aspectFill" :src="r.image"></image>
+						</div>
+						<div class="rewardPay">
+							<span>{{r.pay}}</span>
+							<span id="changePrice" v-if="r.id==1">(1金豆)</span>
+						</div>
+					</div>
+					<!-- <div class="rewardItem" :class="{'activeItem':reward.a}" @click="changeReward(reward.a)">
 						<div class="rewardImage">
 							<image mode="aspectFill" src="https://img1.baidu.com/it/u=2007431631,2758384144&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=400"></image>
 						</div>
@@ -155,10 +165,14 @@
 						<div class="rewardPay">
 							<span>66金豆</span>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="rewardQuantity">
-					<div class="quantityItem" :class="{'activeQuantity':quantity.one}" @click="changeQuantity1">
+					<div class="quantityItem" v-for="q in quantitys" :key="q.id" 
+					:class="{'activeQuantity':q.select}" @click="changeQuantity(q.id)">
+						<span>{{q.number}}个</span>
+					</div>
+					<!-- <div class="quantityItem" :class="{'activeQuantity':quantity.one}" @click="changeQuantity1">
 						<span>1个</span>
 					</div>
 					<div class="quantityItem" :class="{'activeQuantity':quantity.two}" @click="changeQuantity2">
@@ -172,12 +186,18 @@
 					</div>
 					<div class="quantityItem" :class="{'activeQuantity':quantity.five}" @click="changeQuantity5">
 						<span>1314个</span>
-					</div>
+					</div> -->
 				</div>
 				<div class="choose">
 					<button id="recharge">充值<span>(剩余金豆0)</span></button>
-					<button id="give">赠送</button>
+					<button id="give" @click="getGiftSuccessful">赠送</button>
 				</div>
+			</div>
+		</div>
+		<!-- 赠送成功提醒 -->
+		<div class="giftSuccessfulRemind" v-if="giftSuccessful">
+			<div class="remind">
+				<span>赠送成功</span>
 			</div>
 		</div>
     </div>
@@ -188,28 +208,42 @@ export default {
     name:'gift',
 	data() {
 		return {
-			giftGiving: true,
-			reward:{
-				a:true,
-				b:false,
-				c:false,
-				d:false,
-				e:false,
-				f:false,
-				g:false,
-				h:false,
-			},
-			quantity:{
+			giftGiving: false,
+			giftSuccessful: false,
+			/* quantity:{
 				one:true,
 				two:false,
 				three:false,
 				four:false,
 				five:false
-			}
+			}, */
+			rewards:[
+				{id:1,pay:'免费',image:'https://img1.baidu.com/it/u=2007431631,2758384144&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=400',select:true},
+				{id:2,pay:'10金豆',image:'https://img1.baidu.com/it/u=1790814123,4215139779&fm=253&fmt=auto&app=138&f=JPEG?w=507&h=500',select:false},
+				{id:3,pay:'15金豆',image:'http://p6.itc.cn/images03/20200528/693f0c0ab85e4b6e9d26650ec3e25ef9.jpeg',select:false},
+				{id:4,pay:'666金豆',image:'https://img0.baidu.com/it/u=2562872668,3341926168&fm=253&fmt=auto&app=138&f=JPG?w=1000&h=425',select:false},
+				{id:5,pay:'666金豆',image:'https://img0.baidu.com/it/u=2280491051,3823646384&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=225',select:false},
+				{id:6,pay:'520金豆',image:'https://img2.baidu.com/it/u=3005909461,33718405&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400',select:false},
+				{id:7,pay:'16金豆',image:'https://img1.baidu.com/it/u=1931175622,1598938568&fm=253&fmt=auto&app=138&f=JPEG?w=610&h=400',select:false},
+				{id:8,pay:'66金豆',image:'https://img2.baidu.com/it/u=1228884032,780487984&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',select:false}
+			],
+			quantitys:[
+				{id:1,number:1,select:true},
+				{id:2,number:9,select:false},
+				{id:3,number:99,select:false},
+				{id:4,number:520,select:false},
+				{id:5,number:1314,select:false},
+			]
 		};
 	},
 	methods: {
-		changeAllQuantity(){
+		changeQuantity(id){
+			for(var x = 0;x < this.quantitys.length;x++){
+				this.quantitys[x].select = false
+			}
+			this.quantitys[id-1].select = true
+		},
+		/* changeAllQuantity(){
 			for(let i in this.quantity){
 				this.quantity[i]=false
 			}
@@ -233,13 +267,20 @@ export default {
 		changeQuantity5(){
 			this.changeAllQuantity()
 			this.quantity.five=true
-		},
+		}, */
 		changeReward(x){
-			for(let i in this.reward){
-				this.reward[i]=false
+			for(var i = 0;i<this.rewards.length;i++){
+				this.rewards[i].select = false
 			}
-			// this.reward.x=true
-			
+			this.rewards[x-1].select = true
+		},
+		getGiftSuccessful(){
+			var that =this
+			this.giftGiving = false
+			this.giftSuccessful = true
+			setTimeout(() => {
+				that.giftSuccessful = false
+			}, 1000);
 		}
 	}
 }
@@ -490,6 +531,7 @@ export default {
 			}
 			.activeItem{
 				border: 3rpx solid #D3AB58;
+				box-sizing: border-box;
 				.rewardPay{
 					background-color: #D3AB58;
 					color: whitesmoke;
@@ -538,6 +580,28 @@ export default {
 			#give{
 				background-color: #D3AB58;
 			}
+		}
+	}
+	.giftSuccessfulRemind{
+		position: fixed;
+		top: 40rpx;
+		left: 0;
+		height: 100rpx;
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 6;
+		.remind{
+			height: 100rpx;
+			width: 80vw;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: whitesmoke;
+			border-radius: 50rpx;
+			color: #D3AB58;
+			font-weight: 600;
 		}
 	}
 }
