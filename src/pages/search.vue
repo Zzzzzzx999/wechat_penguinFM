@@ -96,7 +96,10 @@ export default {
             height: 100%;
             padding: 0 40rpx;
             color: gray;
-            font-size: 36rpx;
+            font-size: 35rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
     .content{

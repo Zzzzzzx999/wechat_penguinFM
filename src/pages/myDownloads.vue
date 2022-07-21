@@ -214,7 +214,7 @@ export default {
     }
     .footer{
         width: 100vw;
-        height: 210rpx;
+        height: 200rpx;
         padding: 15rpx 0 60rpx;
         box-sizing: border-box;
         display: flex;
