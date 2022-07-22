@@ -186,6 +186,16 @@ export default {
         return {
             recentProgram:true, //是否有最近收听节目
         }
+    },
+    methods: {
+        goPlayer(){
+            // const backgroundAudioManager = wx.getBackgroundAudioManager()
+            // backgroundAudioManager.title =  '西汉盛世的启示'
+            // backgroundAudioManager.singer = '侯杨方'
+            // backgroundAudioManager.src = 'http://music.163.com/song/media/outer/url?id=447925558.mp3'
+            // backgroundAudioManager.coverImgUrl = 'https://i0.hdslb.com/bfs/music/3e0cfc04de84ce6176c18bb92394a1b5efa57978.jpg@370w_370h.webp'
+            wx.navigateTo({url:'../pages/playPage'})
+        }
     }
 }
 </script>
@@ -383,11 +393,12 @@ export default {
                     font-weight: 600;
                 }
                 .empty{
-                    margin-left: 50rpx;
+                    margin-left: 100rpx;
                     color: #D3AB58;
                     border: 1rpx solid #a78034;
                     border-radius: 10rpx;
                     padding: 5rpx 10rpx;
+                    font-size: 28rpx;
                 }
             }
             .programContent{

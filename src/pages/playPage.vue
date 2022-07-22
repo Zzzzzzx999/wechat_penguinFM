@@ -42,11 +42,11 @@
                 </div>
             </div>
             <div class="playControl">
-                <image id="changeTime" src="../static/icon/后退-22.png"></image>
-                <image id="cutSong" src="../static/icon/24gf-previousCircle.png"></image>
-                <image id="play" src="../static/icon/24gf-pauseCircle.png"></image>
-                <image id="cutSong" src="../static/icon/24gf-playCircle.png"></image>
-                <image id="changeTime" src="../static/icon/前进-22.png"></image>
+                <image mode="aspectFill" id="changeTime" src="../static/icon/后退-22.png"></image>
+                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-previousCircle.png"></image>
+                <image mode="aspectFill" id="play" src="../static/icon/24gf-pauseCircle.png"></image>
+                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-playCircle.png"></image>
+                <image mode="aspectFill" id="changeTime" src="../static/icon/前进-22.png"></image>
             </div>
             <div class="programControl">
                 <image :src="collect?'../static/icon/playPage/取消收藏.png':'../static/icon/playPage/取消收藏(1).png'" @click="collect=!collect"></image>
@@ -181,8 +181,8 @@
                     <span>打榜</span>
                 </div> -->
             </div>
-            <div class="goDownloadContent">
-                <div class="programItem" v-for="program in programs" :key="program.id" @click="changeProgram(program.id)">
+            <div class="goDownloadContentHidden" :class="{'goDownloadContent':contentTitle[1].select}">
+                <div class="programItem" v-for="program in programs" :key="program.id" @click="changeProgram(program.id)" v-if="contentTitle[1].select">
                     <div class="programItemLeft programItemBothSides">
                         <image src="../static/icon/playPage/添加.png"></image>
                     </div>
@@ -705,8 +705,8 @@ export default {
             .directoryContent{
                 flex-grow: 1;
                 padding-top: 10rpx;
-                display: flex;
                 flex-flow: column-reverse nowrap;
+                justify-content: flex-end;
                 background-color: white;
                 overflow: scroll;
                 .chapterItem{
@@ -841,7 +841,7 @@ export default {
             }
         }
         .goDownloadContentTitle{
-            height: 150rpx;
+            height: 70rpx;
             width: 100%;
             background-color: white;
             padding: 0 80rpx;
@@ -851,6 +851,7 @@ export default {
             align-items: center;
             font-size: 30rpx;
             font-weight: 600;
+            flex-shrink: 0;
             .contentTitleItem{
                 height: 50rpx;
                 width: 85rpx;
@@ -922,6 +923,17 @@ export default {
             .activeProgramItem{
                 color: #D3AB58;
             }
+        }
+        // 隐藏下载目录文本
+        .goDownloadContentHidden{
+            flex-grow: 1;
+            width: 100%;
+            background-color: white;
+            padding: 0rpx 30rpx;
+            box-sizing: border-box;
+            overflow: scroll;
+            display: flex;
+            flex-flow: column-reverse nowrap;
         }
         .goDownloadBottom{
             height: 200rpx;

@@ -217,6 +217,14 @@ export default {
   methods:{
     changePath(path){
       wx.redirectTo({url:path})
+    },
+    goPlayer(){
+        // const backgroundAudioManager = wx.getBackgroundAudioManager()
+        // backgroundAudioManager.title =  '西汉盛世的启示'
+        // backgroundAudioManager.singer = '侯杨方'
+        // backgroundAudioManager.src = 'http://music.163.com/song/media/outer/url?id=447925558.mp3'
+        // backgroundAudioManager.coverImgUrl = 'https://i0.hdslb.com/bfs/music/3e0cfc04de84ce6176c18bb92394a1b5efa57978.jpg@370w_370h.webp'
+        wx.navigateTo({url:'../pages/playPage'})
     }
   }
 }
