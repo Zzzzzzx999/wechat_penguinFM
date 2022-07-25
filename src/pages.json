@@ -89,6 +89,12 @@
 			"style": {
 				"navigationBarTitleText": "礼物榜"
 			}
+		},
+		{
+			"path": "pages/runningtest",
+			"style": {
+				"navigationBarTitleText": "跑步测试"
+			}
 		}
 	],
 	"globalStyle": {

@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="searchResult">
-
+            
         </div>
     </div>
 </template>
@@ -53,11 +53,12 @@ export default {
         },
         beginSearch(){
             console.log(123);
-            // wx.setStorageSync('inputValue',this.searchValue)
+            wx.setStorageSync('inputValue',this.searchValue)
             wx.navigateTo({url:'./searchResult?keyword='+this.searchValue})
         },
         searchThis(keyword){
             console.log(keyword);
+            this.searchValue = keyword
             wx.navigateTo({url:"./searchResult?keyword="+this.searchValue})
         }
     },

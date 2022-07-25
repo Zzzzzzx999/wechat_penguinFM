@@ -17,7 +17,10 @@
         <div class="content" @click="changePath('./runningKnack')">
             <image mode="aspectFill" src="https://img0.baidu.com/it/u=232630015,4067357132&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"></image>
             <div class="contentCard">
-                <div class="speed">慢速</div>
+                <div class="speed">
+                    <span>慢速</span>
+                    <image src="../static/icon/run/闪电（快速）.png"></image>
+                </div>
                 <div class="detail">
                     <div class="title">
                         <span>晚间跑步的小诀窍</span>
@@ -96,7 +99,7 @@ export default {
         justify-content: center;
         image{
             height: 600rpx;
-            width: 600rpx;
+            width: 100%;
             border-radius: 15rpx;
             z-index: 1;
         }
@@ -110,9 +113,16 @@ export default {
             background-image: linear-gradient(rgba(0,0,0,0), #1B1B1B);
             .speed{
                 height: 30rpx;
-                padding: 16rpx;
+                padding: 18rpx;
                 color: #DCB769;
                 font-weight: 500;
+                display: flex;
+                align-items: center;
+                image{
+                    height: 35rpx;
+                    width: 35rpx;
+                    padding-left: 5rpx;
+                }
             }
             .detail{
                 display: flex;

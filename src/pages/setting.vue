@@ -235,6 +235,8 @@ export default {
   font-size: 32rpx;
   font-weight: 500;
   position: relative;
+  height: 100%;
+  width: 100%;
   .remind{
     margin: 0 40rpx;
     display: flex;

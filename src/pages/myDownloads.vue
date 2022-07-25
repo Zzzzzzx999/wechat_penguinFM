@@ -338,7 +338,7 @@ export default {
                 #Title{
                     font-size: 24rpx;
                     color: black;
-                    border: 1rpx solid black;
+                    border: 3rpx solid black;
                     border-radius: 8rpx;
                     font-weight: 500;
                     padding: 0 6rpx;

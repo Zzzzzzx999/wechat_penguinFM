@@ -382,7 +382,7 @@ export default {
                 #Title{
                     font-size: 24rpx;
                     color: black;
-                    border: 1rpx solid black;
+                    border: 3rpx solid black;
                     border-radius: 8rpx;
                     font-weight: 300;
                     padding: 0 6rpx;
@@ -406,6 +406,11 @@ export default {
                 margin: 15rpx 0;
                 color: grey;
                 overflow: hidden;
+                white-space: wrap;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
             }
             .programDetail{
                 color: grey;

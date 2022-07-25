@@ -82,15 +82,17 @@
                             </div>
                         </div>
                         <slider class="slider" min="0" max="90" :value="sliderValue" 
-                            activeColor="rgb(173, 169, 169)" block-color="#D3AB58" block-size="12" backgroundColor="rgb(173, 169, 169)"
+                            activeColor="rgb(199, 199, 199)" block-color="#D3AB58" block-size="12" backgroundColor="rgba(222, 222, 222, 0.849)"
                             @change="changeSpeed">
                             <div class="box">
                                 <div class="boxes"></div>
                                 <div class="boxes"></div>
                                 <div class="boxes"></div>
                             </div>
+                            <div class="block" :class="{'speedOne':!speed.one,'speedTwo':!speed.two,'speedThree':!speed.three,'speedFour':!speed.four}">
+                                <div class="blockItem"></div>
+                            </div>
                         </slider>
-                        
                         <div class="sliderTime">
                             <span>0.5x</span>
                             <span>1.0x</span>
@@ -311,6 +313,7 @@ export default {
                     this.speedGetTrue()
                     this.speed.four=false
                     console.log(444, e.detail.value);
+                    console.log(this.sliderValuel);
                 }
             }, 1000);
             // console.log(this.sliderValue);
@@ -327,11 +330,15 @@ export default {
             }
             this.contentTitle[id-1].select = true
         },
-        changeChapter(id){
+        changeChapter(Id){
             for (let i = 0; i < this.chapters.length; i++) {
                 this.chapters[i].select = false
             }
-            this.chapters[id-1].select = true
+            for (let i = 0; i < this.chapters.length; i++) {
+                if (this.chapters[i].id == Id) {
+                    this.chapters[i].select=true
+                }
+            }
         },
         changeProgram(id){
             for (let p = 0; p < this.programs.length; p++) {
@@ -595,6 +602,9 @@ export default {
                         .boxHidden{
                             visibility:hidden;
                         }
+                        .blockhidden{
+                            background-color: white;
+                        }
                     }
                     .slider{
                         width: 95%;
@@ -620,9 +630,36 @@ export default {
                                 border-right: 3rpx solid rgb(173, 169, 169);
                             }
                         }
+                        .block{
+                            height: 25rpx;
+                            width: 25rpx;
+                            position: absolute;
+                            top: 7rpx;
+                            left: 0;
+                            display: flex;
+                            justify-content: space-between;
+                            border-radius: 50%;
+                            background-color: #D3AB58;
+                            .blockItem{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                        .speedOne{
+                            left: 0;
+                        }
+                        .speedTwo{
+                            left:205rpx;
+                        }
+                        .speedThree{
+                            left:410rpx;
+                        }
+                        .speedFour{
+                            left:615rpx;
+                        }
                     }
                     .wx-slider-thumb {
-                        // display: none;
+                        display: none;
                     }
                     .sliderTime{
                         display: flex;

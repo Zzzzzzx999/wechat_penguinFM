@@ -223,6 +223,8 @@ export default {
             image{
                 height: 100%;
                 width: 100%;
+                min-height: 50rpx;
+                min-width: 50rpx;
             }
         }
         .regions{
@@ -245,6 +247,8 @@ export default {
             image{
                 height: 100%;
                 width: 100%;
+                min-height: 50rpx;
+                min-width: 50rpx;
             }
         }
     }

@@ -115,8 +115,8 @@
 				justify-content: center;
 				align-items: center;
 				image{
-					height: 50rpx;
-					width: 50rpx;
+					height: 35rpx;
+					width: 35rpx;
 					padding-right: 15rpx;
 				}
 				span{

@@ -1,7 +1,7 @@
 <template>
     <div class="myCollection">
 		<div class="notCollection">
-			<image src="../static/icon/取消收藏.png"></image>
+			<image mode="aspectFill" src="../static/icon/取消收藏.png"></image>
 			<div class="text">
 				<span>暂无收藏专辑</span>
 			</div>

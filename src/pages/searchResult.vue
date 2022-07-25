@@ -202,14 +202,16 @@ export default {
             }
         };
     },
-    // onShow(){
-    //     if(wx.getStorageSync('inputValue')){
-    //         this.searchValue = wx.getStorageSync('inputValue')
-    //     }
-    // },
+    onShow(){
+        if(wx.getStorageSync('inputValue')){
+            this.searchValue = wx.getStorageSync('inputValue')
+            wx.setNavigationBarTitle({title:this.searchValue})
+            wx.removeStorageSync('inputValue')
+        }
+    },
     onLoad(query){
         if (query.keyword) {
-            console.log(1515);
+            console.log(query.keyword);
             wx.setNavigationBarTitle({title:query.keyword})
             this.searchValue = query.keyword
         }
@@ -218,28 +220,25 @@ export default {
         changePath(path){
             wx.redirectTo({url:path})
         },
+        changeType(){
+            for(let a in this.contentType){
+                this.contentType[a] = false
+            }
+        },
         changeProgramType(){
+            this.changeType()
             this.contentType.program=true
-            this.contentType.album=false
-            this.contentType.anchor=false
-            this.contentType.square=false
         },
         changeAlbumType(){
-            this.contentType.program=false
+            this.changeType()
             this.contentType.album=true
-            this.contentType.anchor=false
-            this.contentType.square=false
         },
         changeAnchorType(){
-            this.contentType.program=false
-            this.contentType.album=false
+            this.changeType()
             this.contentType.anchor=true
-            this.contentType.square=false
         },
         changeSquareType(){
-            this.contentType.program=false
-            this.contentType.album=false
-            this.contentType.anchor=false
+            this.changeType()
             this.contentType.square=true
         },
         goPlayer(){
@@ -289,7 +288,7 @@ body{
         .cancel{
             padding: 0 30rpx;
             color: gray;
-            font-size: 36rpx;
+            font-size: 35rpx;
             font-weight: 500;
             vertical-align: center;
         }
