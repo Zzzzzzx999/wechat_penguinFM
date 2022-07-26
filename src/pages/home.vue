@@ -18,7 +18,9 @@
                 <div class="headSculpture">
                     <div class="userHeadSculpture">
                         <image src="https://img1.baidu.com/it/u=2145784900,2865107303&fm=253&fmt=auto&app=138&f=JPG?w=500&h=500"></image>
-                        <image id="wechat" src="../static/icon/homeIcon/微信.png"></image>
+                        <!-- <image id="wechat" :src="loginWay=='weixin'?'../static/icon/homeIcon/微信.png':'../static/icon/homeIcon/QQ.png'"></image> -->
+                        <image v-if="loginWay=='weixin'" id="wechat" src="../static/icon/homeIcon/微信.png"></image>
+                        <image v-if="loginWay=='qq'" id="wechat" src="../static/icon/homeIcon/QQ.png"></image>
                     </div>
                 </div>
                 <div class="infoDetail">
@@ -183,7 +185,7 @@ export default {
     name:'home',
     data() {
         return {
-            
+            loginWay:''
         }
     },
     methods: {
@@ -199,6 +201,12 @@ export default {
             wx.navigateTo({url:'../pages/playPage'})
         }
     },
+    onLoad(query){
+        if (query.loginWay) {
+            this.loginWay=query.loginWay
+            console.log(this.loginWay);
+        }
+    }
 }
 </script>
 

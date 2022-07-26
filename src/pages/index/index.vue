@@ -11,16 +11,16 @@
 		</div>
 		<div class="login">
 			<div class="loginMethods">
-				<div class="qq loginItem" @click="login('../home')">
+				<div class="qq loginItem" @click="login('../home?loginWay=qq')">
 					<image src="../../static/icon/QQ.png"></image>
 					<span>QQ登录</span>
 				</div>
-				<div class="wechat loginItem" @click="login('../home')">
+				<div class="wechat loginItem" @click="login('../home?loginWay=weixin')">
 					<image src="../../static/icon/微信.png"></image>
 					<span>微信登录</span>
 				</div>
 			</div>
-			<div class="lookAround" @click="login('../home')">
+			<div class="lookAround" @click="login('../home?loginWay=tourist')">
 				<span>随便看看</span>
 				<image src="../../static/icon/右箭头.png"></image>
 			</div>
