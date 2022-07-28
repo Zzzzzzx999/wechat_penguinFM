@@ -73,22 +73,16 @@
 					<image src="../static/icon/channelSorting/菜单-展开.png"></image>
 				</div>
 			</div>
-			<div class="functionalItem">
-				<div class="itemLeft">
-					<image src="../static/icon/channelSorting/书城.png"></image>
-					<span>书城</span>
-				</div>
-				<div class="itemRight">
-					<image src="../static/icon/channelSorting/菜单-展开.png"></image>
-				</div>
-			</div>
 		</div>
+        <player></player>
 	</div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
 	name:"channelSorting",
+    components:{player},
 	data() {
 		return {
 			
@@ -102,7 +96,6 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     margin-top: 20rpx;
-    border-bottom: 1rpx solid #e9e7e7;
     .functionalItem{
 		height: 88rpx;
 		width: 100%;
@@ -116,10 +109,12 @@ export default {
 			display: flex;
 			align-items: center;
 			image{
-				width: 50rpx;
-				height: 50rpx;
+				width: 35rpx;
+				height: 35rpx;
 			}
 			span{
+				font-size: 30rpx;
+				font-weight: 500;
 				padding-left: 20rpx;
 			}
 		}
@@ -131,11 +126,14 @@ export default {
 			color: darkgrey;
 			font-size: 29rpx;
 			image{
-				width: 30rpx;
-				height: 30rpx;
+				width: 25rpx;
+				height: 25rpx;
 				margin-left: 20rpx;
 			}
 		}
     }
-  }
+}
+.wx-slider-thumb {
+    display: none;
+}
 </style>

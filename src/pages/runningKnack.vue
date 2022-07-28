@@ -23,7 +23,7 @@
         </div>
         <!-- 进度条 -->
         <div class="progressBar">
-            <slider class="slider" min="0" max="100" value="1" activeColor="whitesmoke" block-size="12" backgroundColor="gray"></slider>
+            <slider class="slider" min="0" max="100" value="1" activeColor="whitesmoke" block-size="12" backgroundColor="rgb(54, 53, 53)"></slider>
             <div class="sliderTime">
                 <span>00:04</span>
                 <span>07:55</span>
@@ -216,7 +216,7 @@ export default {
             display: flex;
             width: 100%;
             height: 130rpx;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
             margin-top: 65rpx;
             background-color: #202020;

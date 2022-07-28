@@ -1,9 +1,6 @@
 <template>
 	<div class="runningTest">
-		 <view class="progress_box">
-			<canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
-			<canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
-		</view>
+		 <button @click="test">点击测试</button>
 	</div>
 </template>
 
@@ -12,16 +9,30 @@ export default {
 	name:'runningTest',
 	data() {
 		return {
-			
+			 
 		};
 	},
 	methods: {
-		
+		test(){
+			/* const user1={id:7,name:'周'}
+			const user2={id:10,age:22}
+			const all_user={...user1,...user2}
+			console.log(all_user); */
+		}
 	}
 	
 }
 </script>
 
 <style lang="less">
-
+.runningTest{
+	height: 60vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	button{
+		border-radius: 20rpx;
+		background-color: antiquewhite;
+	}
+}
 </style>

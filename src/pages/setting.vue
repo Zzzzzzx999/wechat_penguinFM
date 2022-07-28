@@ -171,7 +171,7 @@
     <div class="logOut">
       <span @click="changePath('./index/index')">退出登录</span>
     </div>
-    <div class="footer" @click="goPlayer()">
+    <!-- <div class="footer" @click="goPlayer()">
       <div class="playBar">
         <div class="radioAvatar">
           <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
@@ -191,17 +191,19 @@
           <image src="../static/icon/文件.png"></image>
         </div>
       </div>
-      <!-- 进度条 -->
       <div class="progressBar" @click.stop>
         <slider class="slider" min="0" max="100" value="30" activeColor="#D3AB58" block-size="12"></slider>
       </div>
-    </div>
+    </div> -->
+    <player></player>
   </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
   name:"setting",
+  components:{player},
   data() {
     return {
       property: 'value',
@@ -242,7 +244,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    border-bottom: 1rpx solid #e9e7e7;
+    border-bottom: 1rpx solid #f0f0f0;
     .remindItem{
       height: 100rpx;
       width: 100%;
@@ -254,7 +256,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     margin-top: 20rpx;
-    border-bottom: 1rpx solid #e9e7e7;
+    border-bottom: 1rpx solid #f0f0f0;
     .functionalItem{
       height: 88rpx;
       width: 100%;
@@ -274,7 +276,7 @@ export default {
         justify-content: flex-end;
         align-items: center;
         color: darkgrey;
-        font-size: 29rpx;
+        font-size: 26rpx;
         image{
           width: 30rpx;
           height: 30rpx;
@@ -297,7 +299,7 @@ export default {
       color: #D3AB58;
     }
   }
-  .footer{
+  /* .footer{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -376,7 +378,9 @@ export default {
         display: none;
       }
     }
-  }
+  } */
 }
-
+.wx-slider-thumb {
+    display: none;
+}
 </style>

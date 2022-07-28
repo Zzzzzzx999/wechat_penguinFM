@@ -9,7 +9,7 @@
 				<span>去看看更多精彩内容</span>
 			</div>
 		</div>
-		<div class="footer" @click="goPlayer()">
+		<!-- <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
                     <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
@@ -29,17 +29,19 @@
                     <image src="../static/icon/文件.png"></image>
                 </div>
             </div>
-            <!-- 进度条 -->
             <div class="progressBar" @click.stop>
                 <slider class="slider" min="0" max="100" value="5" activeColor="#D3AB58" block-size="12"></slider>
             </div>
-        </div>
-	</div>
+        </div> -->
+        <player></player>
+    </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:"myCollection",
+    components:{player},
 	data() {
 		return {
 			property: 'value',
@@ -63,17 +65,20 @@ export default {
 	height: 100vh;
 	width: 100vw;
 	position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	.notCollection{
-		height: 86vh;
-		width: 100vw;
+		height: 250rpx;
+		width: 250rpx;
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
-		justify-content: center;
-		font-size: 28rpx;
+		justify-content: space-between;
+		font-size: 26rpx;
 		image{
-			height: 200rpx;
-			width: 200rpx;
+			height: 175rpx;
+			width: 175rpx;
 		}
 		.text{
 			color: gray;
@@ -82,7 +87,7 @@ export default {
 			color: #D3AB58;
 		}
 	}
-	.footer{
+	/* .footer{
         width: 100vw;
         height: 210rpx;
         padding: 15rpx 0 60rpx;
@@ -162,6 +167,9 @@ export default {
                 display: none;
             }
         }
-    }
+    } */
+}
+.wx-slider-thumb {
+    display: none;
 }
 </style>

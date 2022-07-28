@@ -151,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer" @click="goPlayer()">
+        <!-- <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
                     <image mode="aspectFill" src="../static/Picture_material/1657765591270.jpg"></image>
@@ -171,17 +171,19 @@
                     <image src="../static/icon/homeIcon/文件.png"></image>
                 </div>
             </div>
-            <!-- 进度条 -->
             <div class="progressBar" @click.stop>
                 <slider class="slider" min="0" max="100" value="0" activeColor="#D3AB58" block-size="12"></slider>
             </div>
-        </div>
+        </div> -->
+        <player></player>
     </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:"recentlyListened",
+    components:{player},
     data() {
         return {
             recentProgram:true, //是否有最近收听节目
@@ -215,20 +217,21 @@ export default {
         display: flex;
         align-items: center;
         image{
-            width: 60rpx;
-            height: 60rpx;
-            min-height: 60rpx;
-            min-width: 60rpx;
+            width: 55rpx;
+            height: 55rpx;
+            min-height: 55rpx;
+            min-width: 55rpx;
         }
         span{
             padding-left: 40rpx;
+            font-size: 32rpx;
             flex-grow: 1;
         }
         #right{
-            width: 37rpx;
-            height: 37rpx;
-            min-height: 37rpx;
-            min-width: 37rpx;
+            width: 30rpx;
+            height: 30rpx;
+            min-height: 30rpx;
+            min-width: 30rpx;
         }
     }
     .notRecentPrograms{
@@ -266,7 +269,7 @@ export default {
             margin: 40rpx 0;
         }
     }
-    .footer{
+    /* .footer{
         width: 100vw;
         height: 210rpx;
         padding: 15rpx 0 60rpx;
@@ -346,7 +349,7 @@ export default {
                 display: none;
             }
         }
-    }
+    } */
 // 节目
     .programs{
         display: flex;
@@ -389,7 +392,7 @@ export default {
                 }
                 #Name{
                     margin-left: 20rpx;
-                    font-size: 32rpx;
+                    font-size: 30rpx;
                     font-weight: 600;
                 }
                 .empty{
@@ -421,5 +424,8 @@ export default {
             margin-bottom: 40rpx;
         }
     }
+}
+.wx-slider-thumb {
+    display: none;
 }
 </style>

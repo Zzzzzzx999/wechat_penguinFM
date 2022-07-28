@@ -15,7 +15,12 @@
             </div>
         </div>
         <div class="content" @click="changePath('./runningKnack')">
-            <image mode="aspectFill" src="https://img0.baidu.com/it/u=232630015,4067357132&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"></image>
+            <div class="contentImage">
+                <image mode="aspectFill" src="https://img0.baidu.com/it/u=232630015,4067357132&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500"></image>
+                <div class="play">
+                    <image src="../static/icon/run/24gf-play.png"></image>
+                </div>
+            </div>
             <div class="contentCard">
                 <div class="speed">
                     <span>慢速</span>
@@ -97,12 +102,29 @@ export default {
         position: relative;
         display: flex;
         justify-content: center;
-        image{
+        .contentImage{
+            position: relative;
             height: 600rpx;
             width: 100%;
-            border-radius: 15rpx;
-            z-index: 1;
+            image{
+                height: 600rpx;
+                width: 100%;
+                border-radius: 15rpx;
+                z-index: 1;
+            }
+            .play{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                z-index: 3;
+                image{
+                    height: 75rpx;
+                    width: 75rpx;
+                }
+            }
         }
+        
         .contentCard{
             height: 950rpx;
             width: 100%;

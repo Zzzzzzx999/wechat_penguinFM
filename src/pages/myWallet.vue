@@ -30,7 +30,7 @@
 		<image src="../static/icon/右箭.png"></image>
 	</div>
 	<div class="history settings">
-		<span>历史记录</span>
+		<span>记录</span>
 		<image src="../static/icon/右箭.png"></image>
 	</div>
   </div>
@@ -69,6 +69,7 @@ export default {
 			}
 			span{
 				padding: 0 20rpx;
+                font-weight: 500;
 			}
 			#detail{
 				width: 30rpx;
@@ -107,7 +108,7 @@ export default {
 		margin: 35rpx;
 		span{
 			font-size: 30rpx;
-			font-weight: 600;
+			font-weight: 500;
 		}
 		image{
 			width: 33rpx;

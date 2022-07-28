@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="programContent">
-                        <span>夜听，让更多的家庭越来越幸福。微信同步收听，请关注公众号：夜听晚上听</span>
+                        <span>夜听，让更多的家庭越来越幸福。微信同步收听，请关注公众号：夜听晚上听夜听</span>
                     </div>
                     <div class="programDetail">
                         <span>9.7分</span>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div class="programContent">
-                        <span>夜听，让更多的家庭越来越幸福。微信同步收听，请关注公众号：夜听晚上听</span>
+                        <span>夜听，让更多的家庭越来越幸福。微信同步收听，请关注公众号：夜听晚上听夜听</span>
                     </div>
                     <div class="programDetail">
                         <span>9.7分</span>
@@ -107,37 +107,15 @@
                 </div>
             </div>
         </div>
-        <div class="footer" @click="goPlayer()">
-            <div class="playBar">
-                <div class="radioAvatar">
-                    <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
-                </div>
-                <div class="radioContent">
-                    <div class="radioContentHeader">
-                        <span>62从婴儿囚犯到皇帝</span>
-                    </div>
-                    <div class="radioContentFooter">
-                        <span>左右滑动切换节目</span>
-                    </div>
-                </div>
-                <div class="broadcast">
-                    <image src="../static/icon/24gf-pauseCircle.png"></image>
-                </div>
-                <div class="text">
-                    <image src="../static/icon/文件.png"></image>
-                </div>
-            </div>
-            <!-- 进度条 -->
-            <div class="progressBar" @click.stop>
-                <slider class="slider" min="0" max="100" value="30" activeColor="#D3AB58" block-size="12"></slider>
-            </div>
-        </div>
+        <player></player>
     </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:"myDownloads",
+    components:{player},
     data() {
         return {
             downloaded:true
@@ -220,9 +198,9 @@ export default {
             margin: 40rpx 0;
         }
     }
-    .footer{
+    /* .footer{
         width: 100vw;
-        height: 200rpx;
+        height: 210rpx;
         padding: 15rpx 0 60rpx;
         box-sizing: border-box;
         display: flex;
@@ -300,7 +278,7 @@ export default {
                 display: none;
             }
         }
-    }
+    } */
 // 节目
     .programs{
         display: flex;
@@ -325,16 +303,6 @@ export default {
                 display: flex;
                 flex-flow: row wrap;
                 align-items: center;
-                .boutique{
-                    font-size: 28rpx;
-                    color: black;
-                    font-weight: 500;
-                }
-                .programName{
-                    margin-left: 20rpx;
-                    font-size: 35rpx;
-                    font-weight: 500;
-                }
                 #Title{
                     font-size: 24rpx;
                     color: black;
@@ -345,7 +313,7 @@ export default {
                 }
                 #Name{
                     margin-left: 20rpx;
-                    font-size: 32rpx;
+                    font-size: 30rpx;
                     font-weight: 600;
                 }
             }
@@ -381,5 +349,9 @@ export default {
             }
         }
     }
+}
+
+.wx-slider-thumb {
+    display: none;
 }
 </style>

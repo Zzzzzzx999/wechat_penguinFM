@@ -20,7 +20,7 @@
 					<span>微信登录</span>
 				</div>
 			</div>
-			<div class="lookAround" @click="login('../home?loginWay=tourist')">
+			<div class="lookAround" @click="login('../runningtest')">
 				<span>随便看看</span>
 				<image src="../../static/icon/右箭头.png"></image>
 			</div>
@@ -58,20 +58,20 @@
 			justify-content: center;
 			align-items: center;
 			width: 375rpx;
-			height: 550rpx;
+			height: 650rpx;
 			image{
-				width: 350rpx;
-				height: 350rpx;
+				width: 300rpx;
+				height: 300rpx;
 			}
 			.name{
-				font-size: 90rpx;
+				font-size: 75rpx;
 				font-weight: 500;
 				font-family: emoji;
 				letter-spacing: 5rpx;
 			}
 			.detail{
-				font-size: 33rpx;
-				font-weight: 400;
+				font-size: 26rpx;
+				font-weight: 500;
 				letter-spacing: 8rpx;
 			}
 		}
@@ -90,18 +90,20 @@
 				justify-content: space-around;
 				align-items: center;
 				.loginItem{
-					height: 100rpx;
+					height: 90rpx;
 					width: 100%;
-					width: 280rpx;
-					border-radius: 30rpx;
+					width: 260rpx;
+					border-radius: 50rpx;
 					background-color: #8E7746;
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					font-size: 30rpx;
+					font-weight: 300;
 					image{
-						width: 50rpx;
-						height: 50rpx;
-						padding-right: 15rpx;
+						width: 45rpx;
+						height: 45rpx;
+						padding-right: 10rpx;
 					}
 					span{
 						color: white;
@@ -114,10 +116,12 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				font-size: 30rpx;
+				font-weight: 300;
 				image{
 					height: 35rpx;
 					width: 35rpx;
-					padding-right: 15rpx;
+					padding-left: 5rpx;
 				}
 				span{
 					color: white;

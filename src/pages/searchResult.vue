@@ -160,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer" @click="goPlayer()">
+        <!-- <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
                     <image mode="aspectFill" src="https://img0.baidu.com/it/u=1303479120,3193737549&fm=253&fmt=auto&app=138&f=JPEG?w=689&h=500"></image>
@@ -180,17 +180,19 @@
                     <image src="../static/icon/文件.png"></image>
                 </div>
             </div>
-            <!-- 进度条 -->
             <div class="progressBar" @click.stop>
                 <slider class="slider" min="0" max="100" value="30" activeColor="#D3AB58" block-size="12"></slider>
             </div>
-        </div>
+        </div> -->
+        <player></player>
     </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:'searchResult',
+    components:{player},
     data() {
         return {
             searchValue: '',
@@ -277,6 +279,8 @@ body{
             input{
                 flex: 1;
                 height: 100%;
+                font-size: 27rpx;
+                font-weight: 600;
             }
             image{
                 height: 40rpx;
@@ -288,9 +292,10 @@ body{
         .cancel{
             padding: 0 30rpx;
             color: gray;
-            font-size: 35rpx;
+            font-size: 32rpx;
             font-weight: 500;
             vertical-align: center;
+            line-height: 60rpx;
         }
     }
     .content{
@@ -391,7 +396,6 @@ body{
                     }
                     #titleName{
                         font-size: 30rpx;
-                        margin-left: 15rpx;
                         color: #D3AB58;
                     }
                     .empty{
@@ -428,7 +432,7 @@ body{
             }
         }
     }
-    .footer{
+    /* .footer{
         width: 100vw;
         height: 210rpx;
         padding: 15rpx 0 60rpx;
@@ -508,7 +512,9 @@ body{
                 display: none;
             }
         }
-    }
+    } */
 }
-
+.wx-slider-thumb {
+    display: none;
+}
 </style>

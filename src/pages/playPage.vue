@@ -45,7 +45,7 @@
                 <image mode="aspectFill" id="changeTime" src="../static/icon/后退-22.png"></image>
                 <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-previousCircle.png"></image>
                 <image mode="aspectFill" id="play" src="../static/icon/24gf-pauseCircle.png"></image>
-                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-playCircle.png"></image>
+                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-nextCircle.png"></image>
                 <image mode="aspectFill" id="changeTime" src="../static/icon/前进-22.png"></image>
             </div>
             <div class="programControl">
@@ -58,6 +58,7 @@
         </div>
         <div class="playPageTitle">
             <span>62从婴儿囚犯到皇帝</span>
+            <image mode="aspectFill" src="../static/icon/playPage/24gf-ellipsis.png"></image>
         </div>
         <!-- 调节语速 -->
         <div class="adjustSpeed" v-if="adjustSpeed">
@@ -512,8 +513,8 @@ export default {
                 width: 50rpx;
             }
             #cutSong{
-                height: 80rpx;
-                width: 80rpx;
+                height: 70rpx;
+                width: 70rpx;
             }
             #play{
                 height: 130rpx;
@@ -526,19 +527,28 @@ export default {
             justify-content: space-around;
             align-items: center;
             image{
-                height: 55rpx;
-                width: 55rpx;
+                height: 40rpx;
+                width: 40rpx;
             }
         }
     }
     .playPageTitle{
+        width: 100%;
         position: absolute;
         top: 80rpx;
-        left: 30rpx;
-        color: aliceblue;
+        left: 0rpx;
+        padding: 0 40rpx;
+        box-sizing: border-box;
         font-size: 42rpx;
         font-weight: 500;
+        color: aliceblue;
         z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        image{
+            height: 55rpx;
+            width: 45rpx;
+        }
     }
     .adjustSpeed{
         position: fixed;
@@ -556,7 +566,7 @@ export default {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            background: rgb(221, 220, 220);
+            background: #f0f0f0;
             z-index: 8;
             .adjustTop{
                 height: 62%;
@@ -571,7 +581,7 @@ export default {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 28rpx;
+                    font-size: 25rpx;
                     color: rgb(165, 164, 164);
                 }
                 .progressBar{
@@ -681,7 +691,7 @@ export default {
             background-color: white;
             margin-top: 20rpx;
             span{
-                font-size: 35rpx;
+                font-size: 32rpx;
                 font-weight: 500;
                 margin-top: 30rpx;
             }

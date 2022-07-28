@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer" @click="goPlayer()">
+        <!-- <div class="footer" @click="goPlayer()">
             <div class="playBar">
                 <div class="radioAvatar">
                     <image mode="aspectFill" src="../static/Picture_material/1657765591270.jpg"></image>
@@ -172,17 +172,19 @@
                     <image src="../static/icon/homeIcon/文件.png"></image>
                 </div>
             </div>
-            <!-- 进度条 -->
             <div class="progressBar" @click.stop>
                 <slider class="slider" min="0" max="100" value="30" activeColor="#D3AB58" block-size="12"></slider>
             </div>
-        </div>
+        </div> -->
+        <player></player>
     </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:'home',
+    components:{player},
     data() {
         return {
             loginWay:''
@@ -226,13 +228,13 @@ export default {
         align-items: center;
         .search{
             padding-left: 30rpx;
-            height: 50rpx;
-            width: 50rpx;
+            height: 40rpx;
+            width: 40rpx;
             image{
                 height: 100%;
                 width: 100%;
-                min-height: 50rpx;
-                min-width: 50rpx;
+                min-height: 40rpx;
+                min-width: 40rpx;
             }
         }
         .regions{
@@ -242,7 +244,8 @@ export default {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            font-size: 36rpx;
+            font-size: 32rpx;
+            font-weight: 500;
             color: rgba(77, 76, 76, 0.705);
             .select{
                 color: black;
@@ -250,13 +253,13 @@ export default {
         }
         .history{
             padding-right: 30rpx;
-            height: 50rpx;
-            width: 50rpx;
+            height: 40rpx;
+            width: 40rpx;
             image{
                 height: 100%;
                 width: 100%;
-                min-height: 50rpx;
-                min-width: 50rpx;
+                min-height: 40rpx;
+                min-width: 40rpx;
             }
         }
     }
@@ -271,7 +274,7 @@ export default {
             align-items: center;
             .headSculpture{
                 width: 25%;
-                height: 200rpx;
+                height: 150rpx;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
@@ -295,7 +298,7 @@ export default {
             }
             .infoDetail{
                 width: 75%;
-                height: 200rpx;
+                height: 150rpx;
                 display: flex;
                 flex-flow: column nowrap;
                 justify-content: space-between;
@@ -307,17 +310,17 @@ export default {
                     align-items: center;
                     .name{
                         height: 50rpx;
-                        font-size: 43rpx;
+                        font-size: 35rpx;
                         font-weight: 400;
                         position: relative;
                         .grade{
-                            width: 50rpx;
-                            height: 25rpx;
-                            font-size: 20rpx;
+                            width: 40rpx;
+                            height: 16rpx;
+                            font-size: 15rpx;
                             font-weight: 600;
                             position: absolute;
-                            top: 0;
-                            left: 90rpx;
+                            top: 10rpx;
+                            right: -50rpx;
                             background-color: #D3AB58;
                             display: flex;
                             justify-content: center;
@@ -325,21 +328,21 @@ export default {
                         }
                     }
                     .recording{
-                        width: 150rpx;
-                        height: 50rpx;
-                        border: 5rpx solid #D3AB58;
+                        width: 125rpx;
+                        height: 40rpx;
+                        border: 3rpx solid #D3AB58;
                         border-radius: 70rpx;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         image{
-                            height: 37rpx;
-                            width: 37rpx;
+                            height: 30rpx;
+                            width: 30rpx;
                             padding-right: 10rpx;
                         }
                         span{
                             color: #D3AB58;
-                            font-size: 30rpx;
+                            font-size: 25rpx;
                         }
                     }
                 }
@@ -352,9 +355,9 @@ export default {
                         display: flex;
                         flex-flow: column nowrap;;
                         font-weight: 600;
-                        font-size: 35rpx;
+                        font-size: 30rpx;
                         #infoType{
-                            font-size: 28rpx;
+                            font-size: 24rpx;
                             font-weight: 400;
                             color: gray;
                         }
@@ -372,14 +375,14 @@ export default {
                 display: flex;
                 flex-flow: column nowrap;
                 width: 100%;
-                border-bottom: 1rpx solid #dfdfdf;
+                border-bottom: 1rpx solid #f0f0f0;
                 padding-bottom: 35rpx;
             }
             .areasCentre{
                 display: flex;
                 flex-flow: column nowrap;
                 width: 100%;
-                border-bottom: 1rpx solid #dfdfdf;
+                border-bottom: 1rpx solid #f0f0f0;
                 padding: 35rpx 0;
             }
             .areasListen{
@@ -399,14 +402,14 @@ export default {
                     display: flex;
                     align-items: center;
                     image{
-                        width: 50rpx;
-                        height: 50rpx;
-                        min-width: 50rpx;
-                        min-height: 50rpx;
+                        width: 40rpx;
+                        height: 40rpx;
+                        min-width: 40rpx;
+                        min-height: 40rpx;
                         margin-right: 36rpx;
                     }
                     span{
-                        font-size: 32rpx;
+                        font-size: 30rpx;
                     }
                 }
                 .functionalItemRight{
@@ -416,19 +419,19 @@ export default {
                     align-items: center;
                     span{
                         color: #c0bfbf;
-                        font-size: 29rpx;
-                        padding: 0 17rpx;
+                        font-size: 27rpx;
+                        padding: 0 10rpx;
                     }
                     #rightArrow{
-                        width: 30rpx;
-                        height: 30rpx;
+                        width: 25rpx;
+                        height: 25rpx;
                     }
                 }
                 
             }
         }
     }
-    .footer{
+    /* .footer{
         width: 100vw;
         height: 210rpx;
         padding: 15rpx 0 60rpx;
@@ -504,6 +507,9 @@ export default {
                 display: none;
             }
         }
+    } */
+    .wx-slider-thumb {
+        display: none;
     }
 }
 </style>

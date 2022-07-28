@@ -182,7 +182,7 @@ export default {
     name:'gift',
 	data() {
 		return {
-			giftGiving: true,
+			giftGiving: false,
 			giftSuccessful: false,
 			/* quantity:{
 				one:true,

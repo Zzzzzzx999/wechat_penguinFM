@@ -82,12 +82,25 @@
                 </div>
             </div>
         </div>
+        <!-- 底部播放器 -->
+        <player></player>
+        <!-- 顶部返回或转发 -->
+        <div class="topRibbon">
+            <div class="back" @click="changePath('../pages/home')">
+                <image src="../static/icon/myPage/3.1 返回1.png"></image>
+            </div>
+            <div class="share">
+                <image src="../static/icon/myPage/转发.png"></image>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import player from "../pages/player/player";
 export default {
     name:'myPage',
+    components:{player},
     data() {
         return {
             haveWork:true,
@@ -95,6 +108,9 @@ export default {
         }
     },
     methods:{
+        changePath(path){
+            wx.redirectTo({url:path})
+        },
         lookWork(){
             this.haveWork=true
             this.haveGift=false
@@ -114,6 +130,7 @@ export default {
     align-items: flex-start;
     height: 100vh;
     width: 100vw;
+    position: relative;
     .backGround1{
         height: 16%;
         width: 100%;
@@ -155,22 +172,21 @@ export default {
                 font-weight: 500;
                 .name{
                     height: 50rpx;
-                    font-size: 38rpx;
+                    font-size: 36rpx;
                     font-weight: 500;
                     position: relative;
                     margin-top: 10rpx;
                     .grade{
                         width: 40rpx;
-                        height: 20rpx;
-                        font-size: 17rpx;
-                        font-weight: 900;
+                        height: 16rpx;
+                        font-size: 16rpx;
+                        font-weight: 600;
                         position: absolute;
-                        top: 0rpx;
-                        left: 90rpx;
+                        top: 14rpx;
+                        left: 80rpx;
                         background-color: #D3AB58;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        line-height: 16rpx;
+                        text-align: center;
                     }
                 }
                 .myInfo{
@@ -181,7 +197,7 @@ export default {
                     .myInfoItem{
                         margin-right: 50rpx;
                         #fansAndGifts{
-                            font-size: 34rpx;
+                            font-size: 33rpx;
                             font-weight: 600;
                             padding-left: 10rpx;
                         }
@@ -256,16 +272,12 @@ export default {
                 font-size: 30rpx;
                 font-weight: 600;
                 .functionalItem{
-                    width: 50%;
                     text-align: center;
-                    span{
-                        // width: 150rpx;
-                        // display: block;
-                        // text-align: justify;
-                        // text-align-last: justify;
-                    }
+                    height: 75rpx;
+                    line-height: 75rpx;
                 }
-                .lookActive span{
+                .lookActive{
+                    height: 100%;
                     color: #D3AB58;
                     border-bottom: 5rpx solid #D3AB58;
                     font-size: 30rpx;
@@ -282,14 +294,34 @@ export default {
                 align-items: center;
                 font-size: 23rpx;
                 color: gray;
+                background-color: white;
                 image{
                     height: 150rpx;
                     width: 150rpx;
-                    margin-bottom: 20rpx;
+                    margin-bottom: 10rpx;
                 }
             }
         }
 
     }
+    .topRibbon{
+        position: fixed;
+        height: 100rpx;
+        width: 100vw;
+        padding: 0 40rpx;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        image{
+            height: 40rpx;
+            width: 40rpx;
+        }
+    }
+}
+
+
+.wx-slider-thumb {
+    display: none;
 }
 </style>

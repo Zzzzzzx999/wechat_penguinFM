@@ -80,11 +80,12 @@ export default {
             display: flex;
             align-items: center;
             padding: 0 30rpx;
-            background-color: rgba(226, 225, 225, 0.904);
+            background-color: #eeeeee;
             border-radius: 30rpx;
             input{
                 flex: 1;
                 height: 100%;
+                font-size: 28rpx;
             }
             image{
                 height: 40rpx;
@@ -95,38 +96,37 @@ export default {
         }
         span{
             height: 100%;
-            padding: 0 40rpx;
+            padding: 0 30rpx;
             color: gray;
-            font-size: 35rpx;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 32rpx;
+            font-weight: 500;
+            line-height: 60rpx;
         }
     }
     .content{
         margin: 40rpx;
         .title{
-            font-size: 37rpx;
+            font-size: 30rpx;
             color: rgba(87, 86, 86, 0.966);
         }
         ul{
             display: flex;
             flex-flow: row wrap;
             font-weight: 500;
-            margin: 30rpx 0;
+            margin: 10rpx 0;
             li{
-                margin: 10rpx 20rpx 5rpx 0;
-                padding: 10rpx 25rpx;
-                background-color: antiquewhite;
+                margin: 15rpx 20rpx 5rpx 0;
+                padding: 10rpx 20rpx;
+                background-color: #f5efe4;
                 border-radius: 40rpx;
-                font-size: 28rpx;
+                font-size: 25rpx;
             }
             .active{
                 margin: 15rpx 20rpx 10rpx 0;
-                padding: 10rpx 25rpx;
-                background-color: rgb(238, 174, 91);
+                padding: 10rpx 20rpx;
+                background-color: #d1a64f;
                 border-radius: 40rpx;
-                font-size: 28rpx;
+                font-size: 25rpx;
                 color: white;
             }
         }
