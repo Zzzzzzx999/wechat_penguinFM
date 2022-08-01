@@ -58,7 +58,7 @@
         </div>
         <div class="playPageTitle">
             <span>62从婴儿囚犯到皇帝</span>
-            <image mode="aspectFill" src="../static/icon/playPage/24gf-ellipsis.png"></image>
+            <image src="../static/icon/playPage/24gf-ellipsis.png"></image>
         </div>
         <!-- 调节语速 -->
         <div class="adjustSpeed" v-if="adjustSpeed">
@@ -278,12 +278,19 @@ export default {
                 {id:8,name:'60盐铁会议: 一个至今未能解决在争论',playBackVolume:'2.5',duration:'16:02',time:'2019.04.15',select:false},
                 {id:9,name:'61海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:false},
                 {id:10,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:11,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:12,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:13,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:14,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:15,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:16,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:true},
+                {id:11,name:'63从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:12,name:'64从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:13,name:'65从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:14,name:'66从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:15,name:'67从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:16,name:'68从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:17,name:'69千古一帝在悔悟: 不存在制造汉武帝',playBackVolume:'3.6',duration:'14:39',time:'2019.03.29',select:false},
+                {id:18,name:'70顾命大计: 周公辅成王与花海遗诏',playBackVolume:'3.2',duration:'15:26',time:'2019.04.02',select:false},
+                {id:19,name:'71汉武帝的评价 (上)',playBackVolume:'3.4',duration:'16:34',time:'2019.04.04',select:false},
+                {id:20,name:'72汉武帝的评价 (下)',playBackVolume:'2.6',duration:'14:01',time:'2019.04.09',select:false},
+                {id:21,name:'73三驾马车的辅政团队',playBackVolume:'2.8',duration:'12:55',time:'2019.04.11',select:false},
+                {id:22,name:'74盐铁会议: 一个至今未能解决在争论',playBackVolume:'2.5',duration:'16:02',time:'2019.04.15',select:false},
+                {id:23,name:'75海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:true},
             ]
         };
     },
@@ -546,8 +553,8 @@ export default {
         display: flex;
         justify-content: space-between;
         image{
-            height: 55rpx;
-            width: 45rpx;
+            height: 50rpx;
+            width: 50rpx;
         }
     }
     .adjustSpeed{
@@ -851,9 +858,9 @@ export default {
         left: 0;
         height: 100vh;
         width: 100vw;
+        z-index: 3;
         display: flex;
         flex-flow: column nowrap;
-        z-index: 3;
         .goDownloadTop{
             height: 100rpx;
             width: 100%;
@@ -976,11 +983,11 @@ export default {
             flex-grow: 1;
             width: 100%;
             background-color: white;
-            padding: 0rpx 30rpx;
-            box-sizing: border-box;
-            overflow: scroll;
-            display: flex;
-            flex-flow: column-reverse nowrap;
+            // padding: 0rpx 30rpx;
+            // box-sizing: border-box;
+            // overflow: scroll;
+            // display: flex;
+            // flex-flow: column-reverse nowrap;
         }
         .goDownloadBottom{
             height: 200rpx;

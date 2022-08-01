@@ -5,19 +5,22 @@
                 <image src="../static/icon/search.png"></image>
             </div>
             <div class="regions">
-                <span>精品</span>
-                <span>分类</span>
-                <span class="select">我的</span>
+                <!-- <span :class="regions.boutique?'select':''" @click="regionsChange">精品</span>
+                <span :class="regions.classification?'select':''" @click="regionsChange">分类</span>
+                <span :class="regions.my?'select':''" @click="regionsChange">我的</span> -->
+                <span v-for="r in regions" :key="r.id" :class="r.select?'select':''" @click="regionsChange(r.id)">
+                    {{r.title}}
+                </span>
             </div>
             <div class="history">
                 <image src="../static/icon/countdown.png" @click="changePath('./recentlyListened')"></image>
             </div>
         </div>
-        <div class="content">
+        <div class="content" v-if="regions[2].select">
             <div class="myInfo" @click="changePath('./myPage')">
                 <div class="headSculpture">
                     <div class="userHeadSculpture">
-                        <image src="https://img1.baidu.com/it/u=2145784900,2865107303&fm=253&fmt=auto&app=138&f=JPG?w=500&h=500"></image>
+                        <image :src="loginWay !== ''?'https://img1.baidu.com/it/u=2145784900,2865107303&fm=253&fmt=auto&app=138&f=JPG?w=500&h=500':'../static/icon/homeIcon/未登录-头像.png'"></image>
                         <!-- <image id="wechat" :src="loginWay=='weixin'?'../static/icon/homeIcon/微信.png':'../static/icon/homeIcon/QQ.png'"></image> -->
                         <image v-if="loginWay=='weixin'" id="wechat" src="../static/icon/homeIcon/微信.png"></image>
                         <image v-if="loginWay=='qq'" id="wechat" src="../static/icon/homeIcon/QQ.png"></image>
@@ -25,11 +28,14 @@
                 </div>
                 <div class="infoDetail">
                     <div class="infoDetailTop">
-                        <div class="name">
+                        <div class="name" v-if="loginWay !== ''">
                             <span>小编</span>
                             <div class="grade">
                                 <span>LV1</span>
                             </div>
+                        </div>
+                        <div class="name" v-if="loginWay == ''">
+                            <span>未登录</span>
                         </div>
                         <div class="recording" @click.stop>
                             <image src="../static/icon/麦克风.png"></image>
@@ -187,10 +193,25 @@ export default {
     components:{player},
     data() {
         return {
-            loginWay:''
+            loginWay:'',
+            regions:[
+                {id:1,title:'精品',select:false},
+                {id:2,title:'分类',select:false},
+                {id:3,title:'我的',select:true},
+            ]
         }
     },
     methods: {
+        regionsChange(id){
+            for (let index = 0; index < this.regions.length; index++) {
+                this.regions[index].select = false
+            }
+            for (let index = 0; index < this.regions.length; index++) {
+                if (this.regions[index].id == id) {
+                    this.regions[index].select = true
+                }
+            }
+        },
         changePath(path){
             wx.navigateTo({url:path})
         },

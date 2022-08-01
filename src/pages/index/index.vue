@@ -20,7 +20,7 @@
 					<span>微信登录</span>
 				</div>
 			</div>
-			<div class="lookAround" @click="login('../runningtest')">
+			<div class="lookAround" @click="login('../home')">
 				<span>随便看看</span>
 				<image src="../../static/icon/右箭头.png"></image>
 			</div>
