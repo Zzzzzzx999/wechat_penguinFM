@@ -45,6 +45,36 @@ export default {
                 arr_text[2].name = 'zhang'
                 console.log('arr_text=',arr_text);
             }, 0);
+        },
+        // 防抖
+        debounce(fn,time){
+            let timer = null;
+
+            return function(){
+                let args = arguments;
+                if (timer) {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+                // 设置定时器，使事件间隔制定时间后执行
+                timer = setTimeout(() => {
+                    fn.applya(this,args)
+                }, time);
+            }
+        },
+        // 节流
+        throttle(fn,delay) {
+            let curTime = Date.now();
+            
+            return function(){
+                let args = arguments;
+                let nowTime = Date.now();
+
+                if (nowTime - curTime >= delay) {
+                    curTime = Date.now();
+                    return fn.apply(this,args)                    
+                }
+            }
         }
 	}
 	
