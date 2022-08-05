@@ -227,7 +227,9 @@ export default {
     onLoad(query){
         if (query.loginWay) {
             this.loginWay=query.loginWay
+            wx.setStorageSync('loginWay',query.loginWay)
             console.log(this.loginWay);
+            this.loginWay=wx.getStorageSync('loginWay')
         }
     }
 }

@@ -86,7 +86,7 @@
         <player></player>
         <!-- 顶部返回或转发 -->
         <div class="topRibbon">
-            <div class="back" @click="changePath('../pages/home')">
+            <div class="back" @click="backPath('../pages/home')">
                 <image src="../static/icon/myPage/3.1 返回1.png"></image>
             </div>
             <div class="share">
@@ -110,6 +110,9 @@ export default {
     methods:{
         changePath(path){
             wx.redirectTo({url:path})
+        },
+        backPath(path){
+            wx.navigateBack({url:path})
         },
         lookWork(){
             this.haveWork=true
