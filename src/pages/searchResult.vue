@@ -121,7 +121,6 @@
                     <div class="programRight">
                         <div class="programTitle">
                             <div class="boutique">
-                                <span id="Title">精品</span>
                                 <span id="titleName">爱情公寓</span>
                                 <span id="Name">(4部合集)</span>
                             </div>
@@ -143,9 +142,8 @@
                     <div class="programRight">
                         <div class="programTitle">
                             <div class="boutique">
-                                <span id="Title">精品</span>
                                 <span id="titleName">爱情公寓</span>
-                                <span id="Name">鬼畜集合</span>
+                                <span id="Name2">鬼畜集合</span>
                             </div>
                         </div>
                         <div class="programContent">
@@ -388,9 +386,14 @@ body{
                         border-radius: 8rpx;
                         font-weight: 500;
                         padding: 0 6rpx;
+                        margin-right: 15rpx;
                     }
                     #Name{
                         margin-left: 15rpx;
+                        font-size: 30rpx;
+                        font-weight: 500;
+                    }
+                    #Name2{
                         font-size: 30rpx;
                         font-weight: 500;
                     }

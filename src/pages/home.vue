@@ -313,8 +313,8 @@ export default {
                         height: 33rpx;
                         width: 33rpx;
                         position: absolute;
-                        bottom: 2rpx;
-                        right: -7rpx;
+                        bottom: 5rpx;
+                        right: 0rpx;
                         z-index: 2;
                     }
                 }

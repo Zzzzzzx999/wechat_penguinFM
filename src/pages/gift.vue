@@ -163,7 +163,7 @@
 					</div> -->
 				</div>
 				<div class="choose">
-					<button id="recharge">充值<span>(剩余金豆0)</span></button>
+					<button id="recharge" @click="changePath('./myWallet')">充值<span>(剩余金豆0)</span></button>
 					<button id="give" @click="getGiftSuccessful">赠送</button>
 				</div>
 			</div>
@@ -226,6 +226,9 @@ export default {
 				this.quantitys[x].select = false
 			}
 			this.quantitys[id-1].select = true
+		},
+		changePath(path){
+			wx.navigateTo({url:path})
 		},
 		/* changeAllQuantity(){
 			for(let i in this.quantity){

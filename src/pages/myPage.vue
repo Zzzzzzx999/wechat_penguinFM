@@ -157,10 +157,13 @@ export default {
             top: -75rpx;
             left: 0rpx;
             z-index: 1;
+            display: flex;
+            flex-flow: column nowrap;
             .headSculpture{
                 height: 150rpx;
                 width: 100%;
                 padding-left: 40rpx;
+                box-sizing: border-box;
                 image{
                     height: 150rpx;
                     width: 150rpx;
@@ -173,6 +176,7 @@ export default {
                 padding: 5rpx 40rpx;
                 font-size: 25rpx;
                 font-weight: 500;
+                box-sizing: border-box;
                 .name{
                     height: 50rpx;
                     font-size: 36rpx;

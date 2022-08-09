@@ -54,6 +54,8 @@ export default {
 .myWallet{
 	height: 100vh;
 	width: 100vw;
+	display: flex;
+	flex-flow: column nowrap;
 	.moneyItem{
 		margin: 35rpx;
 		display: flex;
