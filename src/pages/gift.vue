@@ -514,21 +514,25 @@ export default {
 						image{
 							height: 75rpx;
 							width: 75rpx;
+                            min-height: 75rpx;
+							min-width: 75rpx;
 							border-radius: 20rpx;
 						}
 						}
 						.rewardPay{
-						height: 32rpx;
-						width: 128rpx;
-						font-size: 26rpx;
-						display: flex;
-						justify-content: center;
-						align-items: baseline;
-						#changePrice{
-							font-size: 17rpx;
-							text-decoration: line-through;
-							font-weight: 600;
-						}
+                            flex-grow: 1;
+                            border-bottom-left-radius: 10rpx;
+                            border-bottom-right-radius: 10rpx;
+                            width: 128rpx;
+                            font-size: 26rpx;
+                            display: flex;
+                            justify-content: center;
+                            align-items: baseline;
+                            #changePrice{
+                                font-size: 17rpx;
+                                text-decoration: line-through;
+                                font-weight: 600;
+                            }
 					}
 				}
 				.activeItem{
