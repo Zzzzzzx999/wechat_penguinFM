@@ -178,7 +178,7 @@ export default {
                 height: 100rpx;
                 justify-content: space-around;
                 align-items: center;
-                margin-top: 65rpx;
+                margin-top: 50rpx;
                 image{
                     width: 50rpx;
                     height: 50rpx;

@@ -127,7 +127,8 @@
                         <span>更新至:朋友圈三天可见，透露了你的社交观 原 【一个人听】...</span>
                     </div>
                     <div class="programDetail">
-                        <span>9.7分 | 播放21.5亿 | 蕊希</span>
+                        <span>9.7分</span><span id="separate">|</span>
+                        <span>播放21.5亿</span><span id="separate">|</span><span>蕊希</span>
                     </div>
                 </div>
             </div>
@@ -146,7 +147,8 @@
                         <span>更新至:第1512章，听谦讲故事，专治不开心！今年的笑点，我承包了，此书逗趣...</span>
                     </div>
                     <div class="programDetail">
-                        <span>9.6分 | 播放21.5亿 | 谦儿2016</span>
+                        <span>9.6分</span><span id="separate">|</span>
+                        <span>播放21.5亿</span><span id="separate">|</span><span>谦儿2016</span>
                     </div>
                 </div>
             </div>
@@ -241,7 +243,7 @@ export default {
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
-        font-size: 28rpx;
+        font-size: 25rpx;
         image{
             height: 150rpx;
             width: 150rpx;
@@ -418,6 +420,9 @@ export default {
             .programDetail{
                 color: grey;
                 font-size: 25rpx;
+            }
+            #separate{
+                padding: 0 12rpx;
             }
         }
         .programsHeader{

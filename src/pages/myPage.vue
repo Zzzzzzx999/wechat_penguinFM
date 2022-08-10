@@ -157,13 +157,10 @@ export default {
             top: -75rpx;
             left: 0rpx;
             z-index: 1;
-            display: flex;
-            flex-flow: column nowrap;
             .headSculpture{
                 height: 150rpx;
                 width: 100%;
                 padding-left: 40rpx;
-                box-sizing: border-box;
                 image{
                     height: 150rpx;
                     width: 150rpx;
@@ -175,8 +172,7 @@ export default {
                 width: 100%;
                 padding: 5rpx 40rpx;
                 font-size: 25rpx;
-                font-weight: 500;
-                box-sizing: border-box;
+                font-weight: 600;
                 .name{
                     height: 50rpx;
                     font-size: 36rpx;
@@ -225,14 +221,10 @@ export default {
                 }
                 .level{
                     display: flex;
-                    justify-content: center;
                     align-items: flex-end;
-                    // align-self: flex-end;
                     height: 60rpx;
-                    width: 100%;
                     margin-top: 20rpx;
                     .grade{
-                        width: 70%;
                         display: flex;
                         align-items: flex-end;
                         height: 55rpx;
@@ -257,8 +249,10 @@ export default {
                         }
                     }
                     .strategy{
-                        width: 30%;
-                        padding-left: 30rpx;
+                        width: 150rpx;
+                        padding: 0 40rpx;
+                        display: flex;
+                        align-items: center;
                         image{
                             padding-left: 10rpx;
                             width: 20rpx;

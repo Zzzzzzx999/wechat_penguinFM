@@ -391,15 +391,16 @@ body{
                     #Name{
                         margin-left: 15rpx;
                         font-size: 30rpx;
-                        font-weight: 500;
+                        font-weight: 600;
                     }
                     #Name2{
                         font-size: 30rpx;
-                        font-weight: 500;
+                        font-weight: 600;
                     }
                     #titleName{
                         font-size: 30rpx;
                         color: #D3AB58;
+                        font-weight: 600;
                     }
                     .empty{
                         margin-left: 50rpx;

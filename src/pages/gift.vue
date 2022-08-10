@@ -357,6 +357,7 @@ export default {
 					image{
 						width: 75rpx;
 						height: 75rpx;
+                        border: 3rpx solid #D3AB58;
 						border-radius: 50%;
 					}
 				}
@@ -368,11 +369,13 @@ export default {
 					.userName{
 						color: #D3AB58;
 						font-size: 27rpx;
+                        font-weight: 600;
 					}
 					.userContribution{
 						margin-top: 10rpx;
 						color: rgb(179, 172, 172);
-						font-size: 23rpx;
+						font-size: 22rpx;
+                        font-weight: 500;
 					}
 				}
 			}
@@ -435,10 +438,12 @@ export default {
 				color: #D3AB58;
 				display: flex;
 				align-items: center;
+                font-size: 26rpx;
 				image{
 					height: 30rpx;
 					width: 30rpx;
 				}
+
 			}
 		}
 	}
@@ -480,68 +485,6 @@ export default {
 				}
 			}
 		}
-		/* .scrollViewX{
-			flex-grow: 1;
-			display: flex;
-    		align-items: space-between;
-			.scrollReward{
-				overflow-x: scroll;
-				display: flex;
-				.rewardContent{
-					flex-shrink: 0;
-					width: 750rpx;
-					padding: 0 40rpx;
-					box-sizing: border-box;
-					display: flex;
-					align-items: center;
-					flex-wrap: wrap;
-					justify-content: space-between;
-					.rewardItem{
-						width: 128rpx;
-						height: 128rpx;
-						margin: 0 15rpx;
-						display: flex;
-						flex-flow: row wrap;
-						align-items: center;
-						justify-content: center;
-						.rewardImage{
-							height: 96rpx;
-							width: 128rpx;
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							image{
-								height: 75rpx;
-								width: 75rpx;
-								border-radius: 20rpx;
-							}
-							}
-							.rewardPay{
-							height: 32rpx;
-							width: 128rpx;
-							font-size: 26rpx;
-							display: flex;
-							justify-content: center;
-							align-items: baseline;
-							#changePrice{
-								font-size: 17rpx;
-								text-decoration: line-through;
-								font-weight: 600;
-							}
-						}
-					}
-					.activeItem{
-						border: 3rpx solid #D3AB58;
-						box-sizing: border-box;
-						.rewardPay{
-							background-color: #D3AB58;
-							color: whitesmoke;
-						}
-					}
-				}
-			}
-		} */
-		
 		.scrollViewX{
 			flex-grow: 1;
 			display: flex;
@@ -590,7 +533,7 @@ export default {
 				}
 				.activeItem{
 					border: 3rpx solid #D3AB58;
-					box-sizing: border-box;
+                    border-radius: 10rpx;
 					.rewardPay{
 						background-color: #D3AB58;
 						color: whitesmoke;
@@ -617,7 +560,7 @@ export default {
 				border: 2rpx solid rgb(198,192,192);
 			}
 			.activeQuantity{
-				border: 2rpx solid #D3AB58;
+				border: 3rpx solid #D3AB58;
 				box-shadow: 0 0 10rpx 0 #D3AB58;
 			}
 		}

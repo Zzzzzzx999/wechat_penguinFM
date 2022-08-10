@@ -7,7 +7,7 @@
         </div>
         <div class="itemRight">
           <span>素雅白金</span>
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="itemRight">
           <span>已关闭</span>
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -27,7 +27,7 @@
         </div>
         <div class="itemRight">
           <span>无音效</span>
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -53,7 +53,7 @@
           <span>自动下载</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -62,7 +62,7 @@
         </div>
         <div class="itemRight">
           <span>约33MB</span>
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
           <span>通知</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -98,7 +98,7 @@
           <span>Siri捷径管理</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -106,7 +106,7 @@
           <span>双卡手机免流设置</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -114,7 +114,7 @@
           <span>Today小工具</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -122,7 +122,7 @@
           <span>车载电台</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -130,7 +130,7 @@
           <span>AI Toy</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
           <span>喜欢,鼓励一下</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -148,7 +148,7 @@
           <span>帮助与反馈</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -156,7 +156,7 @@
           <span>我要当主播</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
       <div class="functionalItem">
@@ -164,7 +164,7 @@
           <span>关于</span>
         </div>
         <div class="itemRight">
-          <image src="../static/icon/右箭.png"></image>
+          <image src="../static/icon/homeIcon/右箭头.png"></image>
         </div>
       </div>
     </div>
@@ -278,8 +278,8 @@ export default {
         color: darkgrey;
         font-size: 26rpx;
         image{
-          width: 30rpx;
-          height: 30rpx;
+          width: 25rpx;
+          height: 25rpx;
           margin-left: 20rpx;
         }
         .switch{

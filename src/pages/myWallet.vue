@@ -27,11 +27,11 @@
     </div>
 	<div class="automaticRenewalSettings settings">
 		<span>专辑自动续购设置</span>
-		<image src="../static/icon/右箭.png"></image>
+		<image src="../static/icon/homeIcon/右箭头.png"></image>
 	</div>
 	<div class="history settings">
 		<span>记录</span>
-		<image src="../static/icon/右箭.png"></image>
+		<image src="../static/icon/homeIcon/右箭头.png"></image>
 	</div>
   </div>
 </template>
@@ -56,6 +56,7 @@ export default {
 	width: 100vw;
 	display: flex;
 	flex-flow: column nowrap;
+    font-size: 30rpx;
 	.moneyItem{
 		margin: 35rpx;
 		display: flex;
@@ -98,7 +99,7 @@ export default {
 				justify-content: center;
 				span{
 					font-size: 24rpx;
-					color: white;
+					color: #ffffffd5;
 				}
 			}
 		}
@@ -113,8 +114,8 @@ export default {
 			font-weight: 500;
 		}
 		image{
-			width: 33rpx;
-			height: 33rpx;
+			width: 25rpx;
+			height: 25rpx;
 		}
 	}
 }

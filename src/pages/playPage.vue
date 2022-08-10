@@ -699,7 +699,7 @@ export default {
             margin-top: 20rpx;
             span{
                 font-size: 32rpx;
-                font-weight: 500;
+                font-weight: 600;
                 margin-top: 30rpx;
             }
         }
