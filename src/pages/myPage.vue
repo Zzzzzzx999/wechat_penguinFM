@@ -86,7 +86,7 @@
         <player></player>
         <!-- 顶部返回或转发 -->
         <div class="topRibbon">
-            <div class="back" @click="backPath('../pages/home')">
+            <div class="back" @click="backPath()">
                 <image src="../static/icon/myPage/3.1 返回1.png"></image>
             </div>
             <div class="share">
@@ -111,8 +111,8 @@ export default {
         changePath(path){
             wx.redirectTo({url:path})
         },
-        backPath(path){
-            wx.navigateBack({url:path})
+        backPath(){
+            wx.navigateBack({delta:1})
         },
         lookWork(){
             this.haveWork=true
@@ -138,7 +138,6 @@ export default {
         height: 16%;
         width: 100%;
         background-color: antiquewhite;
-        z-index: -666;
         image{
             width: 100%;
             height: 100%;
@@ -151,7 +150,7 @@ export default {
         z-index: 1;
         position: relative;
         .myPageContent{
-            height: 1280rpx;
+            height: 100%;
             width: 100%;
             position: absolute;
             top: -75rpx;
@@ -161,6 +160,7 @@ export default {
                 height: 150rpx;
                 width: 100%;
                 padding-left: 40rpx;
+                box-sizing: border-box;
                 image{
                     height: 150rpx;
                     width: 150rpx;
@@ -173,6 +173,7 @@ export default {
                 padding: 5rpx 40rpx;
                 font-size: 25rpx;
                 font-weight: 600;
+                box-sizing: border-box;
                 .name{
                     height: 50rpx;
                     font-size: 36rpx;

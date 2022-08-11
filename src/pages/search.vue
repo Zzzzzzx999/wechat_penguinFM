@@ -5,7 +5,7 @@
                 <input type="text" v-model.trim="searchValue" @confirm="beginSearch" placeholder="搜索节目/音乐/主播/广播">
                 <image v-if="searchValue!=''" src="../static//icon/取消.png" @click="searchValue=''"></image>
             </div>
-            <span @click="backPath('../pages/home')">取消</span>
+            <span @click="backPath()">取消</span>
         </div>
         <div class="content">
             <div class="title">
@@ -49,10 +49,10 @@ export default {
     },
     methods: {
         changePath(path){
-            wx.redirectTo({url:path})
+            wx.navigateTo({url:path})
         },
-        backPath(path){
-            wx.navigateBack({url:path})
+        backPath(){
+            wx.navigateBack({delta:1})
         },
         beginSearch(){
             console.log(123);

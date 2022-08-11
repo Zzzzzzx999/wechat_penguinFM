@@ -5,7 +5,7 @@
                 <input type="text" v-model="searchValue" @confirm="beginSearch" placeholder="搜索节目/音乐/主播/广播">
                 <image v-if="searchValue!=''" src="../static//icon/取消.png" @click="searchValue=''"></image>
             </div>
-            <div class="cancel" @click="changePath('./home')">取消</div>
+            <div class="cancel" @click="backPath()">取消</div>
         </div>
         <div class="content">
             <div class="total">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="totalContent">
+            <div class="totalContent" :class="FixedContentTitle?'fixedTitle':''">
                 <div class="contentType">
                     <div class="program typeItem" :class="{'typeActive':contentType.program}" @click="changeProgramType">
                         <span>节目</span>
@@ -156,6 +156,174 @@
                         </div>
                     </div>
                 </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="programs">
+                    <div class="programLeft">
+                        <image mode="aspectFill" src="https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D46224441%2C3969877682%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D2847%26h%3D1780%26s%3D88A7DF14787B099EE8AC788D0300E0C2&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f242,182&n=0&g=0n&q=100?sec=1658298567&t=1972d4bfd0c36d32022912eb0ba98d2e"></image>
+                    </div>
+                    <div class="programRight">
+                        <div class="programTitle">
+                            <div class="boutique">
+                                <span id="titleName">爱情公寓</span>
+                                <span id="Name2">鬼畜集合</span>
+                            </div>
+                        </div>
+                        <div class="programContent">
+                            <span>更新至:有毒！你有见过这么魔性的爱情公寓吗......</span>
+                        </div>
+                        <div class="programDetail">
+                            <span>8.9分</span>
+                            <span id="separate">|</span>
+                            <span>精神污染</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div class="footer" @click="goPlayer()">
@@ -199,7 +367,8 @@ export default {
                 album:true,
                 anchor:false,
                 square:false
-            }
+            },
+            FixedContentTitle:false,
         };
     },
     onShow(){
@@ -218,7 +387,10 @@ export default {
     },
     methods: {
         changePath(path){
-            wx.redirectTo({url:path})
+            wx.navigateTo({url:path})
+        },
+        backPath(){
+            wx.navigateBack({delta:2})
         },
         changeType(){
             for(let a in this.contentType){
@@ -249,7 +421,12 @@ export default {
             // backgroundAudioManager.coverImgUrl = 'https://i0.hdslb.com/bfs/music/3e0cfc04de84ce6176c18bb92394a1b5efa57978.jpg@370w_370h.webp'
             wx.navigateTo({url:'../pages/playPage'})
         }
-    }
+    },
+    onPageScroll(e){
+        console.log('页面滚动距离',e.scrollTop);
+        if (e.scrollTop>140) return this.FixedContentTitle = true
+        this.FixedContentTitle = false
+    },
 }
 </script>
 
@@ -299,6 +476,7 @@ body{
     .content{
         display: flex;
         flex-flow: column nowrap;
+        position: relative;
         .total{
             display: flex;
             flex-flow: column nowrap;
@@ -307,6 +485,7 @@ body{
         }
         .totalContent{
             height: 75rpx;
+            width: 100vw;
             background-color: #f4f4f4;
             display: flex;
             align-items: center;
@@ -341,6 +520,10 @@ body{
                     min-height: 42rpx;
                 }
             }
+        }
+        .fixedTitle{
+            position: fixed;
+            top: 0;
         }
         .funtionalAreas{
             background-color: #f9f9f9;

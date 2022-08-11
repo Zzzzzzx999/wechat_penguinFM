@@ -148,6 +148,7 @@ export default {
     .down{
         display: flex;
         flex-flow: column nowrap;
+        position: relative;
         .downTitle{
             width: 100vw;
             height: 80rpx;
@@ -159,6 +160,7 @@ export default {
             justify-content: space-around;
             font-size: 28rpx;
             font-weight: 600;
+            position: fixed;
             .downTitleItem{
                 height: 80rpx;
                 display: flex;
@@ -175,6 +177,7 @@ export default {
             justify-content: center;
             flex-flow: column nowrap;
             height: 550rpx;
+            margin-top: 80rpx;
             image{
                 width: 130rpx;
                 height: 130rpx;

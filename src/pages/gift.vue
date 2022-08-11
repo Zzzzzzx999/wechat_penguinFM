@@ -230,6 +230,9 @@ export default {
 		changePath(path){
 			wx.navigateTo({url:path})
 		},
+        backPath(){
+            wx.navigateBack({delta:1})
+        },
 		/* changeAllQuantity(){
 			for(let i in this.quantity){
 				this.quantity[i]=false
@@ -269,6 +272,7 @@ export default {
 			this.giftSuccessful = true
 			setTimeout(() => {
 				that.giftSuccessful = false
+                this.backPath()
 			}, 1000);
 		}
 	}

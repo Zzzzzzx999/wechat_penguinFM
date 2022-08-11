@@ -213,11 +213,17 @@ export default {
     flex-flow: column nowrap;
     background-color: whitesmoke;
     .addToSiri{
-        background-color: rgba(255, 255, 255, 0.45);
+        // background-color: rgba(255, 255, 255, 0.45);
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 100%;
         height: 100rpx;
         padding: 0 40rpx;
         display: flex;
         align-items: center;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
         image{
             width: 55rpx;
             height: 55rpx;
@@ -258,7 +264,7 @@ export default {
 
     }
     .recentPrograms{
-        margin: 40rpx 0;
+        margin: 140rpx 0 40rpx;
     }
     .everyoneIsListening{
         display: flex;

@@ -43,17 +43,17 @@
             </div>
             <div class="playControl">
                 <image mode="aspectFill" id="changeTime" src="../static/icon/后退-22.png"></image>
-                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-previousCircle.png"></image>
-                <image mode="aspectFill" id="play" src="../static/icon/24gf-pauseCircle.png"></image>
-                <image mode="aspectFill" id="cutSong" src="../static/icon/24gf-nextCircle.png"></image>
+                <image mode="aspectFill" id="cutSong" src="../static/icon/play-skip-back-circle.png"></image>
+                <image mode="aspectFill" id="play" src="../static/icon/bg-suspend.png"></image>
+                <image mode="aspectFill" id="cutSong" src="../static/icon/play-skip-forward-circle.png"></image>
                 <image mode="aspectFill" id="changeTime" src="../static/icon/前进-22.png"></image>
             </div>
             <div class="programControl">
                 <image :src="collect?'../static/icon/playPage/取消收藏.png':'../static/icon/playPage/取消收藏(1).png'" @click="collect=!collect"></image>
-                <image src="../static/icon/playPage/排序.png" @click="openDownload=true"></image>
+                <image src="../static/icon/playPage/排序.png" @click="openDownload=true,location('program')"></image>
                 <image src="../static/icon/playPage/转发.png"></image>
                 <image :src="timing?'../static/icon/playPage/广播-定时(1).png':'../static/icon/playPage/广播-定时.png'" @click="timing=!timing"></image>
-                <image src="../static/icon/playPage/文本.png" @click="openDirectory=true"></image>
+                <image src="../static/icon/playPage/文本.png" @click="openDirectory=true,location('chapter')"></image>
             </div>
         </div>
         <div class="playPageTitle">
@@ -120,8 +120,9 @@
                     <image id="rightItem" src="../static/icon/playPage/下载-文件下载-16.png"></image>
                     </div>
                 </div>
-                <div class="directoryContent">
-                    <div class="chapterItem" :class="{'activeChapterItem':chap.select}" v-for="chap in chapters" :key="chap.id" @click="changeChapter(chap.id)">
+                <scroll-view class="directoryContent" :scroll-y="true" :scroll-into-view="toViewChapter">
+                    <view class="chapterItem" :class="{'activeChapterItem':chap.select}"
+                        v-for="chap in chapters" :key="chap.id" @click="changeChapter(chap.id)" :id="'chapter'+chap.id">
                         <div class="chapterItemLeft">
                             <div class="chapterItemLeftTop">
                                 <span>{{chap.name}}</span>
@@ -135,8 +136,8 @@
                         <div class="chapterItemRight" @click.stop>
                             <image src="../static/icon/关闭.png" @click="deleteChapter(chap.id)"></image>
                         </div>
-                    </div>
-                </div>
+                    </view>
+                </scroll-view>
                 <div class="contentBottom" @click="changePath('./recentlyListened')">
                     <div class="contentBottomLeft">
                         <span>最近收听</span>
@@ -152,6 +153,7 @@
         </div>
         <!-- 查看下载列表 -->
         <div class="goDownload" v-if="openDownload">
+        <!-- catchtouchmove禁止滚动 -->
             <div class="goDownloadTop">
                 <div class="goDownloadTopLeft">
                     <image id="back" src="../static/icon/playPage/左箭.png" @click="openDownload=false"></image>
@@ -184,8 +186,9 @@
                     <span>打榜</span>
                 </div> -->
             </div>
-            <div class="goDownloadContentHidden" :class="{'goDownloadContent':contentTitle[1].select}">
-                <div class="programItem" v-for="program in programs" :key="program.id" @click="changeProgram(program.id)" v-if="contentTitle[1].select">
+            <scroll-view class="goDownloadContentHidden" :class="{'goDownloadContent':contentTitle[1].select}" :scroll-y="true" :scroll-into-view="toViewProgram">
+                <view class="programItem" v-for="program in programs" :key="program.id" @click="changeProgram(program.id)" :id="'program'+program.id"
+                    v-show="contentTitle[1].select">
                     <div class="programItemLeft programItemBothSides">
                         <image src="../static/icon/playPage/添加.png"></image>
                     </div>
@@ -202,8 +205,8 @@
                     <div class="programItemRight programItemBothSides">
                         <image src="../static/icon/选择器展开.png"></image>
                     </div>
-                </div>
-            </div>
+                </view>
+            </scroll-view>
             <div class="goDownloadBottom" @click="goPlayer()">
                 <div class="playBar">
                     <div class="radioAvatar">
@@ -244,6 +247,8 @@ export default {
             openDirectory:false, //打开播放目录
             openDownload:false, //打开下载列表
             sliderValue:30,     //滑块的值
+            toViewChapter:'',
+            toViewProgram:'',
             speed:{
                 one:true,
                 two:false,
@@ -257,46 +262,49 @@ export default {
                 {id:4,name:'打榜',number:'',select:false},
             ],
             chapters:[
-                {id:1,name:'54婴儿囚犯',duration:'14:01',select:false},
-                {id:2,name:'55千古一帝在悔悟: 不存在制造汉武帝',duration:'14:39',select:false},
-                {id:3,name:'56顾命大计: 周公辅成王与花海遗诏',duration:'15:26',select:false},
-                {id:4,name:'57汉武帝的评价 (上)',duration:'16:34',select:false},
-                {id:5,name:'58汉武帝的评价 (下)',duration:'14:01',select:false},
-                {id:6,name:'59三驾马车的辅政团队',duration:'12:55',select:false},
-                {id:7,name:'60盐铁会议: 一个至今未能解决在争论',duration:'16:02',select:false},
+                {id:9,name:'62从婴儿囚犯到皇帝',duration:'17:23',select:false},
                 {id:8,name:'61海昏侯传奇',duration:'19:17',select:false},
-                {id:9,name:'62从婴儿囚犯到皇帝',duration:'17:23',select:true},
+                {id:7,name:'60盐铁会议: 一个至今未能解决在争论',duration:'16:02',select:false},
+                {id:6,name:'59三驾马车的辅政团队',duration:'12:55',select:false},
+                {id:5,name:'58汉武帝的评价 (下)',duration:'14:01',select:false},
+                {id:4,name:'57汉武帝的评价 (上)',duration:'16:34',select:false},
+                {id:3,name:'56顾命大计: 周公辅成王与花海遗诏',duration:'15:26',select:false},
+                {id:2,name:'55千古一帝在悔悟: 不存在制造汉武帝',duration:'14:39',select:false},
+                {id:1,name:'54婴儿囚犯',duration:'14:01',select:true},
             ],
             programs:[
-                {id:1,name:'53汉武帝与太子微妙的关系',playBackVolume:'4.0',duration:'16:55',time:'2019.03.21',select:false},
-                {id:2,name:'54婴儿囚犯',playBackVolume:'3.7',duration:'14:01',time:'2019.03.25',select:false},
-                {id:3,name:'55千古一帝在悔悟: 不存在制造汉武帝',playBackVolume:'3.6',duration:'14:39',time:'2019.03.29',select:false},
-                {id:4,name:'56顾命大计: 周公辅成王与花海遗诏',playBackVolume:'3.2',duration:'15:26',time:'2019.04.02',select:false},
-                {id:5,name:'57汉武帝的评价 (上)',playBackVolume:'3.4',duration:'16:34',time:'2019.04.04',select:false},
-                {id:6,name:'58汉武帝的评价 (下)',playBackVolume:'2.6',duration:'14:01',time:'2019.04.09',select:false},
-                {id:7,name:'59三驾马车的辅政团队',playBackVolume:'2.8',duration:'12:55',time:'2019.04.11',select:false},
-                {id:8,name:'60盐铁会议: 一个至今未能解决在争论',playBackVolume:'2.5',duration:'16:02',time:'2019.04.15',select:false},
-                {id:9,name:'61海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:false},
-                {id:10,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:11,name:'63从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:12,name:'64从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:13,name:'65从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:14,name:'66从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:15,name:'67从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:16,name:'68从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
-                {id:17,name:'69千古一帝在悔悟: 不存在制造汉武帝',playBackVolume:'3.6',duration:'14:39',time:'2019.03.29',select:false},
-                {id:18,name:'70顾命大计: 周公辅成王与花海遗诏',playBackVolume:'3.2',duration:'15:26',time:'2019.04.02',select:false},
-                {id:19,name:'71汉武帝的评价 (上)',playBackVolume:'3.4',duration:'16:34',time:'2019.04.04',select:false},
-                {id:20,name:'72汉武帝的评价 (下)',playBackVolume:'2.6',duration:'14:01',time:'2019.04.09',select:false},
-                {id:21,name:'73三驾马车的辅政团队',playBackVolume:'2.8',duration:'12:55',time:'2019.04.11',select:false},
+                {id:23,name:'75海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:false},
                 {id:22,name:'74盐铁会议: 一个至今未能解决在争论',playBackVolume:'2.5',duration:'16:02',time:'2019.04.15',select:false},
-                {id:23,name:'75海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:true},
+                {id:21,name:'73三驾马车的辅政团队',playBackVolume:'2.8',duration:'12:55',time:'2019.04.11',select:false},
+                {id:20,name:'72汉武帝的评价 (下)',playBackVolume:'2.6',duration:'14:01',time:'2019.04.09',select:false},
+                {id:19,name:'71汉武帝的评价 (上)',playBackVolume:'3.4',duration:'16:34',time:'2019.04.04',select:false},
+                {id:18,name:'70顾命大计: 周公辅成王与花海遗诏',playBackVolume:'3.2',duration:'15:26',time:'2019.04.02',select:false},
+                {id:17,name:'69千古一帝在悔悟: 不存在制造汉武帝',playBackVolume:'3.6',duration:'14:39',time:'2019.03.29',select:false},
+                {id:16,name:'68从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:15,name:'67从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:14,name:'66从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:13,name:'65从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:12,name:'64从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:11,name:'63从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:10,name:'62从婴儿囚犯到皇帝',playBackVolume:'1',duration:'已听8%',time:'2019.04.23',select:false},
+                {id:9,name:'61海昏侯传奇',playBackVolume:'2.3',duration:'19:17',time:'2019.04.19',select:false},
+                {id:8,name:'60盐铁会议: 一个至今未能解决在争论',playBackVolume:'2.5',duration:'16:02',time:'2019.04.15',select:false},
+                {id:7,name:'59三驾马车的辅政团队',playBackVolume:'2.8',duration:'12:55',time:'2019.04.11',select:false},
+                {id:6,name:'58汉武帝的评价 (下)',playBackVolume:'2.6',duration:'14:01',time:'2019.04.09',select:false},
+                {id:5,name:'57汉武帝的评价 (上)',playBackVolume:'3.4',duration:'16:34',time:'2019.04.04',select:false},
+                {id:4,name:'56顾命大计: 周公辅成王与花海遗诏',playBackVolume:'3.2',duration:'15:26',time:'2019.04.02',select:false},
+                {id:3,name:'55千古一帝在悔悟: 不存在制造汉武帝',playBackVolume:'3.6',duration:'14:39',time:'2019.03.29',select:false},
+                {id:2,name:'54婴儿囚犯',playBackVolume:'3.7',duration:'14:01',time:'2019.03.25',select:false},
+                {id:1,name:'53汉武帝与太子微妙的关系',playBackVolume:'4.0',duration:'16:55',time:'2019.03.21',select:true},
             ]
         };
     },
     methods: {
         changePath(path){
-            wx.redirectTo({url:path})
+            wx.navigateTo({url:path})
+        },
+        backPath(){
+            wx.navigateBack({delta:1})
         },
         changeSpeed(e){
             setTimeout(() => {
@@ -352,7 +360,11 @@ export default {
             for (let p = 0; p < this.programs.length; p++) {
                 this.programs[p].select = false
             }
-            this.programs[id-1].select = true
+            for (let p = 0; p < this.programs.length; p++) {
+                if (this.programs[p].id==id) {
+                    this.programs[p].select = true
+                }
+            }
         },
         deleteChapter(id){
             var new_arr=[]
@@ -375,6 +387,23 @@ export default {
             // backgroundAudioManager.src = 'http://music.163.com/song/media/outer/url?id=447925558.mp3'
             // backgroundAudioManager.coverImgUrl = 'https://i0.hdslb.com/bfs/music/3e0cfc04de84ce6176c18bb92394a1b5efa57978.jpg@370w_370h.webp'
             wx.navigateTo({url:'../pages/playPage'})
+        },
+        location(p){
+            if (p=='chapter') {
+                for (let i = 0; i < this.chapters.length; i++) {
+                    if (this.chapters[i].select===true) {
+                        this.toViewChapter = p+this.chapters[i].id
+                        console.log('此时选中',this.toViewChapter);
+                    }
+                }
+            }else if (p=='program') {
+                for (let i = 0; i < this.programs.length; i++) {
+                    if (this.programs[i].select===true) {
+                        this.toViewProgram = p+this.programs[i].id
+                        console.log('此时选中',this.toViewProgram);
+                    }
+                }
+            }
         }
     }
 }
@@ -933,11 +962,11 @@ export default {
             flex-grow: 1;
             width: 100%;
             background-color: white;
-            padding: 0rpx 30rpx;
+            padding: 25rpx 30rpx;
             box-sizing: border-box;
             overflow: scroll;
-            display: flex;
-            flex-flow: column-reverse nowrap;
+            // display: flex;
+            // flex-flow: column-reverse nowrap;
             .programItem{
                 display: flex;
                 align-items: center;
@@ -983,11 +1012,6 @@ export default {
             flex-grow: 1;
             width: 100%;
             background-color: white;
-            // padding: 0rpx 30rpx;
-            // box-sizing: border-box;
-            // overflow: scroll;
-            // display: flex;
-            // flex-flow: column-reverse nowrap;
         }
         .goDownloadBottom{
             height: 200rpx;
