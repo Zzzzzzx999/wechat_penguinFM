@@ -68,7 +68,7 @@
                         <span>调整语速</span>
                     </div>
                     <div class="progressBar">
-                        <div class="speedDetail">
+                        <!-- <div class="speedDetail">
                             <div class="speedbox" :class="{'boxHidden':speed.one}">
                                 <span>0.5x</span>
                             </div>
@@ -90,8 +90,11 @@
                                 <div class="boxes"></div>
                                 <div class="boxes"></div>
                             </div>
-                            <div class="block" :class="{'speedOne':!speed.one,'speedTwo':!speed.two,'speedThree':!speed.three,'speedFour':!speed.four}">
-                                <div class="blockItem"></div>
+                            <div class="block">
+                                <div class="blockItem" :class="{'activeBlockItem':!speed.one}"></div>
+                                <div class="blockItem" :class="{'activeBlockItem':!speed.two}"></div>
+                                <div class="blockItem" :class="{'activeBlockItem':!speed.three}"></div>
+                                <div class="blockItem" :class="{'activeBlockItem':!speed.four}"></div>
                             </div>
                         </slider>
                         <div class="sliderTime">
@@ -99,7 +102,15 @@
                             <span>1.0x</span>
                             <span>1.5x</span>
                             <span>2.0x</span>
+                        </div> -->
+                        <div class="theBar">
+                            <div class="blockItem" v-for="item in speedArr" :key="item.id" @click="activeSpeed=item.id">
+                                <div class="top" :class="{'activeBlockItem':activeSpeed!=item.id}">{{item.value}}</div>
+                                <div class="dot" :class="{'activeBlockItem':activeSpeed!=item.id}"></div>
+                                <div class="bottom">{{item.value}}</div>
+                            </div>
                         </div>
+                        <div class="slider"></div>
                     </div>
                 </div>
                 <div class="determine">
@@ -243,18 +254,19 @@ export default {
         return {
             collect: false,     //收藏
             timing:false,    //定时闹钟
-            adjustSpeed:false,    //调整语速
+            adjustSpeed:true,    //调整语速
             openDirectory:false, //打开播放目录
             openDownload:false, //打开下载列表
             sliderValue:30,     //滑块的值
             toViewChapter:'',
             toViewProgram:'',
-            speed:{
-                one:true,
-                two:false,
-                three:true,
-                four:true,
-            },
+            activeSpeed:0,
+            speedArr:[
+                {id:0,value:'0.5x'},
+                {id:1,value:'1.0x'},
+                {id:2,value:'1.5x'},
+                {id:3,value:'2.0x'},
+            ],
             contentTitle:[
                 {id:1,name:'详情',number:'',select:false},
                 {id:2,name:'节目',number:'62',select:true},
@@ -621,14 +633,69 @@ export default {
                     color: rgb(165, 164, 164);
                 }
                 .progressBar{
-                    height: 30rpx;
-                    width: 90vw;
                     display: flex;
                     flex-flow: column nowrap;
-                    justify-content: center;
                     align-items: center;
-                    margin-top: 50rpx;
-                    .speedDetail{
+                    position: relative;
+                }
+                .theBar{
+                    height: 150rpx;
+                    width: 80vw;
+                    display: flex;
+                    align-items: center;
+                    background-color: white;
+                    .blockItem{
+                        height: 150rpx;
+                        flex: 2;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        &:nth-child(1){
+                            flex: 1;
+                            align-items: flex-start;
+                            .top,.bottom{
+                                margin-left: -20rpx;
+                            }
+                        }
+                        &:nth-child(4){
+                            flex: 1;
+                            align-items: flex-end;
+                            .top,.bottom{
+                                margin-right: -20rpx;
+                            }
+                        }
+                        .top{
+                            height: 65rpx;
+                            width: 80rpx;
+                            background-color: rgba(243, 233, 233, 0.849);
+                            border-radius: 20rpx;
+                            padding: 10rpx;
+                            box-sizing: border-box;
+                            // margin-bottom: 20rpx;
+                            color: #e0ac42;
+                        }
+                        .dot{
+                            height: 26rpx;
+                            width: 26rpx;
+                            border-radius: 50%;
+                            background-color: #D3AB58;
+                            z-index: 6;
+                            margin: 15rpx 0;
+                        }
+                        .bottom{
+                            height: 25rpx;
+                            font-size: 20rpx;
+                            padding: 0 10rpx;
+                            color: grey;
+                        }
+                    }
+                    .activeBlockItem{
+                        visibility: hidden;
+                    }
+                    
+                    
+                    /* .speedDetail{
                         display: flex;
                         justify-content: space-between;
                         width: 100vw;
@@ -678,17 +745,21 @@ export default {
                         }
                         .block{
                             height: 25rpx;
-                            width: 25rpx;
+                            width: 100%;
                             position: absolute;
                             top: 7rpx;
                             left: 0;
                             display: flex;
                             justify-content: space-between;
-                            border-radius: 50%;
-                            background-color: #D3AB58;
                             .blockItem{
-                                height: 100%;
-                                width: 100%;
+                                height: 25rpx;
+                                width: 25rpx;
+                                border-radius: 50%;
+                                background-color: #D3AB58;
+                                visibility: hidden;
+                            }
+                            .activeBlockItem{
+                                visibility: visible;
                             }
                         }
                         .speedOne{
@@ -714,7 +785,14 @@ export default {
                         font-size: 20rpx;
                         padding: 0 10rpx;
                         color: grey;
-                    }
+                    } */
+                }
+                .slider{
+                    height: 5rpx;
+                    width: 97%;
+                    position: absolute;
+                    bottom: 53rpx;
+                    background-color: rgba(222, 222, 222, 0.849);
                 }
             }
         }
